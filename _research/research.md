@@ -1,7 +1,7 @@
 ---
 title: "Observational Tracers of Hot and Cold Gas in Isolated Galaxy Simulations"
 collection: research
-permalink: /research/research
+permalink: /research/
 ---
 
 I have been working on studying the effects of environment on properties of galaxies. My work can be categorized in following disciplines:
