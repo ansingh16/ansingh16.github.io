@@ -1,7 +1,9 @@
 ---
-title: "Research"
-excerpt: "Short description of portfolio item number 1"
+title: "Observational Tracers of Hot and Cold Gas in Isolated Galaxy Simulations"
 collection: research
+excerpt: 'Using isolated spiral galaxy simulations to analyze the distribution of gas in the circumgalactic medium.'
+permalink: /research/research
+---
 
 I have been working on studying the effects of environment on properties of galaxies. My work can be categorized in following disciplines:
 
