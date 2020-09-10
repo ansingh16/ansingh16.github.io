@@ -12,4 +12,3 @@ I have been working on studying the effects of environment on properties of gala
 - Comparing results from large-scale high resolution simulations like EAGLE, Illustris and Millennium simulations with observations.
 - Hydrodynamical simulation using RAMSES code to study impact of quenching mechanisms in galactic encounters. 
 
----
