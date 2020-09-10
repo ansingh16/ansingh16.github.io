@@ -1,7 +1,6 @@
 ---
 title: "Observational Tracers of Hot and Cold Gas in Isolated Galaxy Simulations"
 collection: research
-excerpt: 'Using isolated spiral galaxy simulations to analyze the distribution of gas in the circumgalactic medium.'
 permalink: /research/research
 ---
 
