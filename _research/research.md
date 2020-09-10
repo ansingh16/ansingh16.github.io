@@ -1,11 +1,7 @@
 ---
-permalink: /
-title: "Research"
-excerpt: "Research"
-author_profile: true
-redirect_from: 
-  - /research/
-  - /research.html
+title: "Portfolio item number 1"
+excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+collection: research
 ---
 I have been working on studying the effects of environment on properties of galaxies. My work can be categorized in following disciplines:
 
