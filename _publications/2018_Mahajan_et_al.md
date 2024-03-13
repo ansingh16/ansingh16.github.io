@@ -1,7 +1,7 @@
 ---
 title: "Ultraviolet and optical view of galaxies in the Coma supercluster"
 collection: publications
-permalink: /publication/2018MNRAS.478.4336M
+permalink: /publication/2018_Mahajan_et_al
 excerpt: 'This paper presents an ultraviolet and optical view of galaxies in the Coma supercluster.'
 date: 2018-08
 venue: 'Monthly Notices of the Royal Astronomical Society'
