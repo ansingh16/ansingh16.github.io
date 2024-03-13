@@ -1,5 +1,11 @@
 title	type	url_slug	venue	date	location	talk_url	description
-Talk 1 on Relevant Topic in Your Field	Talk	talk-1	UC San Francisco, Department of Testing	2012-03-01	San Francisco, California		This is a description of your talk, which is a markdown files that can be all markdown-ified like any other post. Yay markdown!
-Tutorial 1 on Relevant Topic in Your Field	Tutorial	tutorial-1	UC-Berkeley Institute for Testing Science	2013-03-01	Berkeley CA, USA	http://exampleurl.com	This is a description of your tutorial, note the different field in type. This is a markdown files that can be all markdown-ified like any other post. Yay markdown!
-Talk 2 on Relevant Topic in Your Field	Talk	talk-2	London School of Testing	2014-02-01	London, UK	http://example2.com	This is a description of your talk, which is a markdown files that can be all markdown-ified like any other post. Yay markdown!
-Conference Proceeding talk 3 on Relevant Topic in Your Field	Conference proceedings talk	talk-3	Testing Institute of America 2014 Annual Conference	2014-03-01	Los Angeles, CA		This is a description of your conference proceedings talk, note the different field in type. You can put anything in this field.
+Study of the effect of environment on AGN activity in HR5 simulation	Talk		Milne Centre meeting University of Hull UK	2023-05-15		
+Studying Galaxy Evolution using Hydro-Dynamical Simulations	Talk		Nehru Planetarium New Delhi	2023-02-16		
+Impact Of AGN emission on estimated star formation rate using IR luminosity of galaxies in HR5	Talk		Mapping the invisible Universe at Lorentz Center Leiden The Netherlands	2022-08-29 to 2022-09-02		
+Effects of local environment on AGN activity in HR5	Talk		The 10th KIAS Workshop on Cosmology and Structure Formation at Korean Institute for Advanced Study (KIAS)	2022-10-24 to 2022-10-28		
+Study of filament galaxies in EAGLE simulation	Talk		LSST@ASIA: Exploring the Wide Fast Deep Universe conference	at UNSW Sydney Australia    2019-05-20 to 2019-05-23		
+Study of filament galaxies in EAGLE simulation	Talk		XXXVII Meeting of Astronomical Society of India Christ (Deemed to be University) Bengaluru India    2019-02-18 to 2019-02-22		
+Caught in the web: a tale of filament galaxies	Poster		IAU Symposium 341: PanModel2018: Challenges in panchromatic modelling of galaxies with next-generation facilities Osaka University Osaka Japan	2018-11-12 to 2018-11-16		
+Ultraviolet and optical view of galaxies in Coma Supercluster	Talk		Young Astronomer's Meet (YAM) Physical Research laboratory (PRL) Ahmedabad India    2018-09-24 to 2018-09-28		
+An analytical study of ram pressure stripping of galaxies	Talk		Franco-Indian Astronomy School: From Re-ionization to Large Scale Structure- A multi-wavelength Approach IUCAA Pune India	2018-02-11 to 2018-02-17		
+Ram Pressure Stripping: An analytical approach	Poster		XXXVI Meeting of Astronomical Society of India Osmania University Hyderabad India	2018-02-05 to 2018-02-09
