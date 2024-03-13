@@ -1,0 +1,74 @@
+---
+title: "Lab tutor in Astrophysics course (Semester-II, 2017-18)"
+collection: teaching
+type: "Undergraduate course"
+permalink: /teaching/2017-2018-semester-II-astrophysics-lab-tutor
+venue: "Your University, Astrophysics Department"
+date: 2017-01-01
+location: "Your University City, Your University Country"
+---
+
+
+---
+title: "Teaching assistant for Numerical Methods course (Semester-II, 2014-15)"
+collection: teaching
+type: "Undergraduate course"
+permalink: /teaching/2014-2015-semester-II-numerical-methods-ta
+venue: "Your University, Numerical Methods Department"
+date: 2014-01-01
+location: "Your University City, Your University Country"
+---
+
+---
+title: "Teaching assistant for Numerical Methods course (Semester-II, 2016-17)"
+collection: teaching
+type: "Undergraduate course"
+permalink: /teaching/2016-2017-semester-II-numerical-methods-ta
+venue: "Your University, Numerical Methods Department"
+date: 2016-01-01
+location: "Your University City, Your University Country"
+---
+
+
+---
+title: "Teaching assistant for Electricity and Magnetism lab (Semester-II, 2014-15)"
+collection: teaching
+type: "Undergraduate lab"
+permalink: /teaching/2014-2015-semester-II-electricity-magnetism-lab-ta
+venue: "IISER Mohali, Electricity and Magnetism Lab"
+date: 2014-01-01
+location: "Mohali, India"
+---
+
+---
+title: "Teaching assistant for Nuclear Physics lab (Semester-I, 2014-15)"
+collection: teaching
+type: "Undergraduate lab"
+permalink: /teaching/2014-2015-semester-I-nuclear-physics-lab-ta
+venue: "IISER Mohali, Nuclear Physics Lab"
+date: 2014-01-01
+location: "Mohali, India"
+---
+
+
+---
+title: "Teaching assistant for Nuclear Physics lab (Semester-I, 2015-16)"
+collection: teaching
+type: "Undergraduate lab"
+permalink: /teaching/2015-2016-semester-I-nuclear-physics-lab-ta
+venue: "IISER Mohali, Nuclear Physics Lab"
+date: 2015-01-01
+location: "Mohali, India"
+---
+
+
+---
+title: "Teaching assistant for Nuclear Physics lab (Semester-I, 2016-17)"
+collection: teaching
+type: "Undergraduate lab"
+permalink: /teaching/2016-2017-semester-I-nuclear-physics-lab-ta
+venue: "IISER Mohali, Nuclear Physics Lab"
+date: 2016-01-01
+location: "Mohali, India"
+---
+
