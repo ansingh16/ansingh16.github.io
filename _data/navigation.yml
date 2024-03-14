@@ -11,12 +11,20 @@ main:
     
   # - title: "Portfolio"
   #   url: /portfolio/
-        
-  - title: "Blog Posts"
-    url: /year-archive/
+  - title: "Organization"
+    url: /organization/
+  
+  - title: "Outreach"
+    url: /outreach/
+       
+  
     
   - title: "CV"
     url: /cv/
     
-  # - title: "Guide"
-  #   url: /markdown/
+  # - title: "Links"
+  #   url: /links/
+
+
+  - title: "Blog Posts"
+    url: /year-archive/

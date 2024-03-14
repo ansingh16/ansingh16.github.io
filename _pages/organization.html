@@ -1,0 +1,12 @@
+---
+layout: talk
+title: "Organization"
+permalink: /organization/
+author_profile: true
+---
+
+{% include base_path %}
+
+{% for post in site.organization reversed %}
+  {% include archive-single-talk.html %}
+{% endfor %}

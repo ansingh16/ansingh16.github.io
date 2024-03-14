@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Ankit Singh / Astrophysicist"
+title                    : "Ankit / Astrophysicist"
 title_separator          : "-"
 name                     : &name "Ankit Singh"
 description              : &description "Exploring the universe"
@@ -204,12 +204,25 @@ collections:
   publications:
     output: true
     permalink: /:collection/:path/
-  portfolio:
-    output: true
-    permalink: /:collection/:path/
   talks:
     output: true
     permalink: /:collection/:path/
+  organization:
+    output: true
+    permalink: /:collection/:path/
+  outreach:
+    output: true
+    permalink: /:collection/:path/
+
+# The type is the type of content to display inside the hyperlink
+
+# In the _config.yml file, the - scope and - values are used within the defaults section to define default settings for different types of content on your Jekyll site.
+
+# scope: This field defines the criteria that determine which content the default settings will apply to. It typically consists of two sub-fields:
+
+# path: Specifies the directory or path where the content is located. For example, "" indicates that the settings apply to content located at the root directory of your site.
+# type: Specifies the type of content to which the settings should be applied. This can include posts, pages, or any other custom collection defined in your Jekyll site.
+# values: This field specifies the default settings to be applied to the content that matches the criteria defined in the scope. The settings can include layout options, whether to display author profiles, whether to enable comments or sharing options, and any other configurations you want to apply universally to that type of content.
 
 
 # Defaults
@@ -239,7 +252,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      share: true
+      share: false
       comments: true
   # _publications
   - scope:
@@ -250,15 +263,6 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _portfolio
-  - scope:
-      path: ""
-      type: portfolio
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comment: true
   # _talks
   - scope:
       path: ""
@@ -267,6 +271,24 @@ defaults:
       layout: talk
       author_profile: true
       share: true
+  # _organization
+  - scope:
+      path: ""
+      type: organization
+    values:
+      layout: single
+      author_profile: true
+      share: false
+      comments: true
+  # _outreach
+  - scope:
+      path: ""
+      type: outreach
+    values:
+      layout: splash
+      author_profile: true
+      share: false
+      comments: true
 
 
 # Sass/SCSS
@@ -279,7 +301,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Asia/Seoul # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
