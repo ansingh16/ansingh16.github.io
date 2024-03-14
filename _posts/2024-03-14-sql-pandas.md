@@ -1,7 +1,7 @@
 ---
-title: 'Leveraging Pandas to Interact with SQL Databases: A Beginner's Guide'
-date: 2024-03-30
-permalink: /posts/2024/03/sql-database-using-pandas/
+title: 'Leveraging Pandas to Interact with SQL'
+date: 2024-03-14
+permalink: /posts/2024/03/sql-pandas/
 tags:
   - sql
   - pandas
@@ -19,6 +19,7 @@ In the realm of data management and analysis, two powerful tools stand out: SQL 
 SQL, or Structured Query Language, is a standardized programming language used for managing and manipulating relational databases. Whether it's organizing data, retrieving specific information, or performing complex calculations, SQL provides a structured framework for interacting with databases efficiently. Its simplicity and versatility make it an indispensable tool for data professionals across various industries.
 
 ### Pandas
+
 On the other hand, Pandas, a Python library, offers a robust toolkit for data manipulation and analysis. Built on top of NumPy, Pandas introduces data structures like DataFrame and Series, which allow users to easily manipulate and analyze tabular data. From cleaning and preprocessing data to performing advanced statistical analysis, Pandas simplifies complex tasks, making data manipulation accessible to users of all skill levels.
 
 Over the years Pandas has been made to integrate seemlessly with SQL databases.
