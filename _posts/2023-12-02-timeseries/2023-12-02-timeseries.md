@@ -1,9 +1,16 @@
-# Time Series analysis
+---
+title: 'Time series analysis'
+date: 2023-12-02
+permalink: /posts/2023/12/time-series/
+tags:
+  - time-series
+  - arima
+---
 
+We will discuss the time series analysis using finance data. The techniques like Moving Average (MA)
+, Autoregressive (AR) and Autoregressive Integrated Moving Average Model (ARIMA) will be dicussed. For modelling the time series we will be using the statsmodel library for the data acquired using Yahoo finance api. 
 
-I analyze the stocks data for time series analysis. 
-Techniques like MA, AR, and ARIMA models will be used. 
-
+Lets begin by importing the data of Microsoft for the years 2019-2021. 
 
 ```python
 import yfinance as yfin
@@ -68,6 +75,7 @@ print(return_test.shape,return_train.shape,price_test.shape,price_train.shape,st
     (51,) (453,) (52,) (454,) (505,)
 
 
+Lets quickly use the statsmodel to decompise the trend and seasonality in the data.
 
 ```python
 # Plot  the components of a time series by
@@ -81,7 +89,7 @@ plt.show()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_3_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_3_0.png)
     
 
 
@@ -110,7 +118,7 @@ plt.show()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_6_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_6_0.png)
     
 
 
@@ -125,7 +133,7 @@ plt.show()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_8_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_8_0.png)
     
 
 
@@ -165,7 +173,7 @@ plt.show()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_12_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_12_0.png)
     
 
 
@@ -197,7 +205,7 @@ plt.gcf().autofmt_xdate()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_14_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_14_0.png)
     
 
 
@@ -210,7 +218,7 @@ plt.show()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_15_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_15_0.png)
     
 
 
@@ -249,7 +257,7 @@ plt.gcf().autofmt_xdate()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_18_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_18_0.png)
     
 
 
@@ -318,7 +326,7 @@ plt.gcf().autofmt_xdate()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_24_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_24_0.png)
     
 
 
@@ -331,7 +339,7 @@ plt.show()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_25_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_25_0.png)
     
 
 
@@ -366,7 +374,7 @@ plt.gcf().autofmt_xdate()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_26_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_26_0.png)
     
 
 
@@ -467,7 +475,7 @@ plt.show()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_33_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_33_0.png)
     
 
 
@@ -494,7 +502,7 @@ plt.gcf().autofmt_xdate()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_35_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_35_0.png)
     
 
 
@@ -551,7 +559,7 @@ plt.show()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_39_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_39_0.png)
     
 
 
@@ -563,13 +571,10 @@ plt.show()
 
 
     
-![png](2023-12-02-timeseries_files/2023-12-02-timeseries_40_0.png)
+![png](/assets/images/2023-12-02-timeseries_files/2023-12-02-timeseries_40_0.png)
     
 
 
 Prophet does not seem to do a good job for predicting the stock future movements out of the box
 
 
-```python
-
-```
