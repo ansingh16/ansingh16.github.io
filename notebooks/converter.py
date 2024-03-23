@@ -8,11 +8,11 @@ parser = argparse.ArgumentParser()
 parser.add_argument('ipynb_path', type=str)
 args = parser.parse_args()
 
-date='2023-11-01'
+date='2023-12-03'
 header = f"""---
-title: 'Portfolio Analysis'
+title: 'Portfolio Optimization'
 date: {date}
-permalink: /posts/2023/11/portfolio-analysis/
+permalink: /posts/2023/12/portfolio-optimization/
 tags:
   - portfolio
   - pandas
