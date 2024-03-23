@@ -97,15 +97,15 @@ plt.show()
 
 Auto-correlation functions (ACF) show the correlation between the same series with different lags. With h being the lag:
 
-$ρ(h) = \frac{Cov(X_t , X_{t−h} )}{Var(X_t )}$
+$$ρ(h) = \frac{Cov(X_t , X_{t−h} )}{Var(X_t )}$$
 
 The coefficients help in deciding the q in MA(q) models.
 
 Partial ACF (PACF) gives information on correlation between current value of a time series
 and its lagged values controlling for the other correlations.
 
-$ρ(h) = \frac{Cov(X_t ,X_{t−h} |X_{t−1} ,X_{t−2} ...X_{t−h−1})}{
-\sqrt{Var(X_t |X_{t−1} ,X_{t−2} ,...,X_{t−h−1} )Var(X_{t−h} |X_{t−1} ,X_{t−2} ,...,X_{t−h−1} )}}$
+$$ρ(h) = \frac{Cov(X_t ,X_{t−h} |X_{t−1} ,X_{t−2} ...X_{t−h−1})}{
+\sqrt{Var(X_t |X_{t−1} ,X_{t−2} ,...,X_{t−h−1} )Var(X_{t−h} |X_{t−1} ,X_{t−2} ,...,X_{t−h−1} )}}$$
 
 The coefficients help in deciding the p in AR(p) models.
 
@@ -146,9 +146,9 @@ Lines above the confidence intervals are considered significant. We see the mode
 Moving average can be considered as smoothing model as it tends to take into account the lag
 values of residual.
 
-For $\alpha \ne 0$, MA(q) can be written as:
+For $$\alpha \ne 0$$, MA(q) can be written as:
 
-$X_t = \epsilon_t + \alpha_1 \epsilon_{t−1} + \alpha_2 \epsilon_{t−2} ... + \alpha_q \epsilon_{t−q}$
+$$X_t = \epsilon_t + \alpha_1 \epsilon_{t−1} + \alpha_2 \epsilon_{t−2} ... + \alpha_q \epsilon_{t−q}$$
 
 
 
@@ -291,10 +291,10 @@ Short-term moving average tends to more reactive to daily activity and long MA c
 ### Autoregressive Model
 
 Idea is the current value is regressed over its own lag
-values in this model. Forcast the current value of time series $X_{t}$:
+values in this model. Forcast the current value of time series $$X_{t}$$:
 
 
-$X_t = c + \alpha_1 X_{t−1} + \alpha_2 X_{t−2} ... + \alpha_p X_{t−p} + \epsilon_t$
+$$X_t = c + \alpha_1 X_{t−1} + \alpha_2 X_{t−2} ... + \alpha_p X_{t−p} + \epsilon_t$$
 
 
 
@@ -387,7 +387,7 @@ ARIMA models are a combination of three key components: AutoRegressive (AR), Int
 
 Three parameters are to be defined p (dicussed above for AR), q (dicussed for MA) and d (control for level difference). d=1 is makes the model ARMA which is a limiting case of ARIMA (p,1,q) models but is also a good model given by:
 
-$Xt = \alpha_1 dX_{t−1} + \alpha_2 dX_{t−2} ... + \alpha_p dX_{t−p} + \epsilon_t + \beta_1 d\epsilon_{t−1} + \beta_2 d\epsilon_{t−2} ... + \beta_q d\epsilon_{t−q}$
+$$Xt = \alpha_1 dX_{t−1} + \alpha_2 dX_{t−2} ... + \alpha_p dX_{t−p} + \epsilon_t + \beta_1 d\epsilon_{t−1} + \beta_2 d\epsilon_{t−2} ... + \beta_q d\epsilon_{t−q}$$
 
 Pros
  - ARIMA allows us to work with raw data without considering if it is
@@ -405,7 +405,7 @@ Cons
 Choosing the parameters from for the ARIMA model. I choose the range 0-10 for the p and q and 0-3 for d.
 Selection of the parameters for the model is made using Akaike Information Criterion (AIC). The parameters resulting in minimum value of AIC are selected. 
 
-$AIC=2k−2ln(L)$
+$$AIC=2k−2ln(L)$$
 
 Where:
  - AIC is the Akaike Information Criterion.

@@ -168,7 +168,7 @@ averages.
 - Signal line that identifies price change
 - Histogram that represents the difference between MACD and signal line.
 
-$MACD = EMA \ for \ 12 \ periods \ − \ EMA \ for \ 26 \ periods$
+$$MACD = EMA \ for \ 12 \ periods \ − \ EMA \ for \ 26 \ periods$$
 
 
 
@@ -450,16 +450,16 @@ The difference considering the stochastic oscillators
 is that it can be divided into fast and slow, and that it is considered usu-
 ally during a period of fourteen days. It is calculated using:
 
-$K =
- 100\frac{CP − Low_{14}}{High_{14} − Low_{14}}$
+$$K =
+ 100\frac{CP − Low_{14}}{High_{14} − Low_{14}}$$
 
 Here,
 
 CP: Closing price
 
-$LP_{14}$: Low price of the 14 previous trading sessions
+$$LP_{14}$$: Low price of the 14 previous trading sessions
 
-$High_{14}$: High price of 14 previous trading sessions
+$$High_{14}$$: High price of 14 previous trading sessions
 
 The  interpretation  regarding  K(%)  is  that  if  the  result  is  80  then  the 
 price  is  8%  above  the  prices  in  the  last  14 days.  The  days  can  change 
@@ -545,7 +545,7 @@ stocks[['Fast %K','Slow %K','Slow %D']].plot(figsize=(18,6))
 ## Kalman Filter
 
 the Kalman filter is a probabilistic model of a sequence of observations
-$z_1$, $z_2$, …, $z_T$ and a corresponding sequence of hidden states $x_1$, $x_2$, …, $x_T$.
+$$z_1$$, $$z_2$$, …, $$z_T$$ and a corresponding sequence of hidden states $$x_1$$, $$x_2$$, …, $$x_T$$.
 
 To recover the hidden states from a sequence of observations that may become available in
 real time, the algorithm iterates between two steps:
@@ -556,8 +556,8 @@ information from both steps in a way that weighs more certain estimates higher.
 To achieve its objective of recovering the hidden state, the Kalman filter makes the
 following assumptions:
 - The system that we are modeling behaves in a linear fashion.
-- The hidden state process is a Markov chain so that the current hidden state $x_t$
-depends only on the most recent prior hidden state $x_{t-1}$.
+- The hidden state process is a Markov chain so that the current hidden state $$x_t$$
+depends only on the most recent prior hidden state $$x_{t-1}$$.
 - Measurements are subject to Gaussian, uncorrelated noise with constant covariance.
 
 
@@ -647,7 +647,7 @@ wavelet = pywt.Wavelet('db6')
 
 # get the scaling function and wavelet function
 phi, psi, x = wavelet.wavefun(level=5)
-df = pd.DataFrame({'$\phi$': phi, '$\psi$': psi}, index=x)
+df = pd.DataFrame({'$$\phi$$': phi, '$$\psi$$': psi}, index=x)
 df.plot(title='Daubechies', subplots=True, layout=(1, 2), figsize=(14, 4), lw=2, rot=0)
 plt.tight_layout()
 sns.despine();
