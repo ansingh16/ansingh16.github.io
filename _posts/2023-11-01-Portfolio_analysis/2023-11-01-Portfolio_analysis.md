@@ -1,5 +1,5 @@
 ---
-title: 'Leveraging Pandas to Interact with SQL'
+title: 'Portfolio Analysis'
 date: 2023-11-01
 permalink: /posts/2023/11/portfolio-analysis/
 tags:
@@ -7,7 +7,6 @@ tags:
   - pandas
   - stocks
 ---
-
 
 We create a portfolio of stocks from American markets, analyze their performance and try to acess the risk in future.
 
@@ -224,7 +223,7 @@ plt.show()
 
 
     
-![png](Portfolio_analysis_files/Portfolio_analysis_9_0.png)
+![png](/assets/images/2023-11-01-Portfolio_analysis_files/2023-11-01-Portfolio_analysis_9_0.png)
     
 
 
@@ -593,7 +592,7 @@ plt.show()
 
 
     
-![png](Portfolio_analysis_files/Portfolio_analysis_19_0.png)
+![png](/assets/images/2023-11-01-Portfolio_analysis_files/2023-11-01-Portfolio_analysis_19_0.png)
     
 
 
@@ -608,7 +607,7 @@ _  =  plt.xlabel( 'Date'  )
 
 
     
-![png](Portfolio_analysis_files/Portfolio_analysis_20_0.png)
+![png](/assets/images/2023-11-01-Portfolio_analysis_files/2023-11-01-Portfolio_analysis_20_0.png)
     
 
 

@@ -8,6 +8,17 @@ parser = argparse.ArgumentParser()
 parser.add_argument('ipynb_path', type=str)
 args = parser.parse_args()
 
+date='2023-11-01'
+header = f"""---
+title: 'Portfolio Analysis'
+date: {date}
+permalink: /posts/2023/11/portfolio-analysis/
+tags:
+  - portfolio
+  - pandas
+  - stocks
+---
+"""
 
 '''
 Input paths
@@ -25,16 +36,16 @@ post_dir = os.path.abspath(os.path.join(root_dir, "_posts"))
 #get date from ipynb file
 # ipynb_file_name has format YYYY-MM-DD-post-name.ipynb get YYYY-MM-DD
 
-out_dir = post_dir + '/' + ipynb_file_name.split('.')[0]
+out_dir = post_dir + '/' + date+'-' + ipynb_file_name.split('.')[0]
 # date is list of 3 elements, YYYY, MM, DD join them together
 
 print(f"out dir: {out_dir}")
 
 # get markdown file name
-md_file_name = ipynb_file_name.split('.')[0] + '.md'
+md_file_name = date+'-' + ipynb_file_name.split('.')[0] + '.md'
 # create markdown 
 
-image_files = ipynb_file_name.split('.')[0] + '_files'
+image_files =   date+'-' + ipynb_file_name.split('.')[0] + '_files'
 print(f"name blog: {image_files}")
 
 print(f"md file name: {md_file_name}")
@@ -45,31 +56,29 @@ os.makedirs(out_dir, exist_ok=True)
 # run the conversion
 subprocess.run(['jupyter','nbconvert','--to', 'markdown', '--output-dir', f'{out_dir}', '--output', f'{md_file_name}',f'{args.ipynb_path}'])
 
-# move image files
+# # move image files
+if os.path.exists(f'{root_dir}/assets/images/{image_files}/'):
+  subprocess.run(['rm','-r',f'{root_dir}/assets/images/{image_files}/'])
+
 subprocess.run(['mv',f'{out_dir}/{image_files}',f'{root_dir}/assets/images/'])
+
+
+print(f"image files: {image_files}")
 
 # read markdown
 with open(os.path.join(out_dir, md_file_name), 'r') as fin:
     md = fin.read()
 
-  
+    print(image_files)
     # replace image files
-    modified_content = md.replace(f'{image_files}/', f'/assets/images/{image_files}/')
+    modified_content1 = md.replace(f'{image_files}/', f'/assets/images/{image_files}/')
 
-    modified_content = md.replace(r'$', r'$$')
+    
+    modified_content = modified_content1.replace(r'$', r'$$')
 
+    
     # write markdown
     with open(os.path.join(out_dir, md_file_name), 'w') as fout:
         
-        fout.write("""
----
-title: 'Leveraging Pandas to Interact with SQL'
-date: 2023-11-01
-permalink: /posts/2023/11/portfolio-analysis/
-tags:
-  - portfolio
-  - pandas
-  - stocks
----
-""")
+        fout.write(header)
         fout.write(modified_content)
