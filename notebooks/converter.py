@@ -56,7 +56,20 @@ with open(os.path.join(out_dir, md_file_name), 'r') as fin:
     # replace image files
     modified_content = md.replace(f'{image_files}/', f'/assets/images/{image_files}/')
 
+    modified_content = md.replace(r'$', r'$$')
+
     # write markdown
     with open(os.path.join(out_dir, md_file_name), 'w') as fout:
         
+        fout.write("""
+---
+title: 'Leveraging Pandas to Interact with SQL'
+date: 2023-11-01
+permalink: /posts/2023/11/portfolio-analysis/
+tags:
+  - portfolio
+  - pandas
+  - stocks
+---
+""")
         fout.write(modified_content)
