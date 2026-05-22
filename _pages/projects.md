@@ -64,6 +64,24 @@ author_profile: true
 
   <div class="project-card">
     <div class="project-card__header">
+      <div class="project-card__icon"><i class="fas fa-project-diagram"></i></div>
+      <div class="project-card__category">LLM Tooling</div>
+    </div>
+    <h3 class="project-card__title">LaTeX for LLM</h3>
+    <p class="project-card__desc">Converts LaTeX documents into a typed graph for targeted LLM context retrieval — graph-based queries cut prompt size by ~54% on average (up to ~80% for focused queries). Features cross-reference resolution, inline math preservation, interactive force-directed graph visualization, and a Claude MCP server.</p>
+    <div class="project-card__tags">
+      <span class="project-card__tag">Python</span>
+      <span class="project-card__tag">MCP</span>
+      <span class="project-card__tag">Graph</span>
+      <span class="project-card__tag">NLP</span>
+    </div>
+    <div class="project-card__links">
+      <a href="https://github.com/ansingh16/LatexForLLM" class="project-card__link"><i class="fab fa-github"></i> GitHub</a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-card__header">
       <div class="project-card__icon"><i class="fas fa-rss"></i></div>
       <div class="project-card__category">Web App</div>
     </div>

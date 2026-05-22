@@ -88,6 +88,24 @@ redirect_from:
       <p class="timeline-item__desc">Eight projects spanning regression, classification, clustering, time series forecasting, A/B testing, and volatility modeling. Built predictive models and deployed interactive dashboards.</p>
     </div>
   </div>
+  <div class="timeline-item">
+    <div class="timeline-item__marker"></div>
+    <div class="timeline-item__content">
+      <span class="timeline-item__date">September 2025</span>
+      <h3 class="timeline-item__title">ISO/IEC 42001 Practitioner</h3>
+      <p class="timeline-item__org">TRECCERT</p>
+      <p class="timeline-item__desc">Certified practitioner in the ISO/IEC 42001 standard for AI Management Systems (AIMS). Ability to interpret and apply AIMS requirements and guidelines in the workplace.</p>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__marker"></div>
+    <div class="timeline-item__content">
+      <span class="timeline-item__date">October 2025</span>
+      <h3 class="timeline-item__title">AI+ Foundation</h3>
+      <p class="timeline-item__org">AI CERTs</p>
+      <p class="timeline-item__desc">Foundational certification covering core AI concepts, techniques, and responsible AI practices.</p>
+    </div>
+  </div>
 </div>
 
 <h2 class="section-heading"><span class="section-heading__accent">//</span> Data Science Skills</h2>
