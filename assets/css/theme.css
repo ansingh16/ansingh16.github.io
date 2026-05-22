@@ -1,0 +1,184 @@
+/* ==========================================================================
+   Theme System — CSS Custom Properties + Override Layer
+   Loaded BEFORE custom.css. Provides dark/light theme via [data-theme] on <html>.
+   ========================================================================== */
+
+/* ---- Light theme (default) ---- */
+:root {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f7f8fa;
+  --color-bg-tertiary: #f0f1f4;
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #4a4a68;
+  --color-text-muted: #8888a0;
+  --color-border: #e4e4ee;
+  --color-border-light: #ededf5;
+  --color-link: #6c5ce7;
+  --color-link-hover: #5a4bd1;
+  --color-link-visited: #7c6ef0;
+  --color-accent: #6c5ce7;
+  --color-accent-secondary: #00b894;
+  --color-gradient-start: #6c5ce7;
+  --color-gradient-end: #00cec9;
+  --color-card-bg: #ffffff;
+  --color-card-shadow: rgba(0, 0, 0, 0.06);
+  --color-card-shadow-hover: rgba(108, 92, 231, 0.15);
+  --color-masthead-bg: rgba(255, 255, 255, 0.92);
+  --color-footer-bg: #f7f8fa;
+  --color-footer-text: #8888a0;
+  --color-code-bg: #f4f4f8;
+  --color-glass-bg: rgba(255, 255, 255, 0.7);
+  --color-glass-border: rgba(255, 255, 255, 0.4);
+  --color-tag-bg: #f0efff;
+  --color-tag-text: #6c5ce7;
+  --color-tag-bg-ml: rgba(0, 184, 148, 0.1);
+  --color-tag-text-ml: #00876a;
+  --color-tag-bg-astro: rgba(253, 203, 110, 0.18);
+  --color-tag-text-astro: #d35400;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --transition-base: 0.3s ease;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+}
+
+/* ---- Dark theme ---- */
+[data-theme="dark"] {
+  --color-bg-primary: #0f0f1a;
+  --color-bg-secondary: #161625;
+  --color-bg-tertiary: #1c1c30;
+  --color-text-primary: #e4e4f0;
+  --color-text-secondary: #b0b0c8;
+  --color-text-muted: #707090;
+  --color-border: #2a2a44;
+  --color-border-light: #222238;
+  --color-link: #a29bfe;
+  --color-link-hover: #c4bfff;
+  --color-link-visited: #b8b2ff;
+  --color-accent: #a29bfe;
+  --color-accent-secondary: #55efc4;
+  --color-gradient-start: #a29bfe;
+  --color-gradient-end: #55efc4;
+  --color-card-bg: #1a1a2e;
+  --color-card-shadow: rgba(0, 0, 0, 0.25);
+  --color-card-shadow-hover: rgba(162, 155, 254, 0.15);
+  --color-masthead-bg: rgba(15, 15, 26, 0.92);
+  --color-footer-bg: #161625;
+  --color-footer-text: #707090;
+  --color-code-bg: #1c1c30;
+  --color-glass-bg: rgba(22, 22, 37, 0.7);
+  --color-glass-border: rgba(255, 255, 255, 0.06);
+  --color-tag-bg: rgba(108, 92, 231, 0.15);
+  --color-tag-text: #a29bfe;
+  --color-tag-bg-ml: rgba(85, 239, 196, 0.1);
+  --color-tag-text-ml: #55efc4;
+  --color-tag-bg-astro: rgba(253, 203, 110, 0.12);
+  --color-tag-text-astro: #fdcb6e;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   Override Layer — map CSS variables onto compiled SCSS output
+   ========================================================================== */
+
+body {
+  background-color: var(--color-bg-primary) !important;
+  color: var(--color-text-primary) !important;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+a { color: var(--color-link) !important; }
+a:visited { color: var(--color-link-visited) !important; }
+a:hover { color: var(--color-link-hover) !important; }
+
+/* Masthead / navbar */
+.masthead {
+  background: var(--color-masthead-bg) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background var(--transition-base), border-color var(--transition-base);
+}
+.greedy-nav { background: transparent !important; }
+.greedy-nav a { color: var(--color-text-secondary) !important; transition: color var(--transition-base) !important; }
+.greedy-nav a:hover { color: var(--color-accent) !important; }
+.greedy-nav .masthead__menu-item--lg a { color: var(--color-text-primary) !important; }
+.greedy-nav .hidden-links {
+  background: var(--color-card-bg) !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+.greedy-nav .hidden-links li a { color: var(--color-text-secondary) !important; }
+.greedy-nav .hidden-links li a:hover { color: var(--color-accent) !important; }
+.greedy-nav button { color: var(--color-text-secondary) !important; }
+.navicon, .navicon::before, .navicon::after { background: var(--color-text-secondary) !important; }
+
+/* Footer */
+.page__footer {
+  background-color: var(--color-footer-bg) !important;
+  color: var(--color-footer-text) !important;
+  border-top: 1px solid var(--color-border) !important;
+  transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+.page__footer a { color: var(--color-accent) !important; }
+.page__footer-follow .social-icons li a { color: var(--color-footer-text) !important; }
+.page__footer-follow .social-icons li a:hover { color: var(--color-accent) !important; }
+
+/* Page content */
+.page__content h2 { border-bottom-color: var(--color-border) !important; color: var(--color-text-primary) !important; }
+.page__content h1, .page__content h3, .page__content h4 { color: var(--color-text-primary) !important; }
+.page__content p, .page__content li { color: var(--color-text-secondary) !important; }
+.page__title { color: var(--color-text-primary) !important; }
+.page__meta { color: var(--color-text-muted) !important; }
+
+/* Sidebar / author profile */
+.sidebar { background: transparent; }
+.author__avatar img { border: 2px solid var(--color-border) !important; }
+.author__content .author__name { color: var(--color-text-primary) !important; }
+.author__bio { color: var(--color-text-secondary) !important; }
+.author__urls-wrapper .btn--inverse {
+  background: var(--color-bg-tertiary) !important;
+  color: var(--color-text-secondary) !important;
+  border-color: var(--color-border) !important;
+}
+.author__urls.social-icons a { color: var(--color-text-secondary) !important; }
+.author__urls.social-icons a:hover { color: var(--color-accent) !important; }
+.author__urls.social-icons .svg-inline--fa,
+.author__urls.social-icons .fa,
+.author__urls.social-icons .fab,
+.author__urls.social-icons .fas,
+.author__urls.social-icons .ai { color: var(--color-text-muted) !important; }
+
+/* Code */
+pre, code { background-color: var(--color-code-bg) !important; color: var(--color-text-primary) !important; }
+p > code, li > code {
+  border: 1px solid var(--color-border) !important;
+  border-radius: 4px;
+}
+
+/* Archive pages */
+.archive__item-title a { color: var(--color-text-primary) !important; }
+.archive__item-title a:hover { color: var(--color-accent) !important; }
+.archive__item-excerpt { color: var(--color-text-secondary) !important; }
+
+/* Taxonomy */
+.page__taxonomy-item {
+  border-color: var(--color-border) !important;
+  color: var(--color-text-secondary) !important;
+}
+.page__taxonomy-item:hover { color: var(--color-accent) !important; }
+
+/* Tables */
+table { border-color: var(--color-border) !important; }
+th { background: var(--color-bg-secondary) !important; color: var(--color-text-primary) !important; }
+td { color: var(--color-text-secondary) !important; border-color: var(--color-border) !important; }
+
+/* Blockquotes */
+blockquote {
+  border-left-color: var(--color-accent) !important;
+  color: var(--color-text-secondary) !important;
+}

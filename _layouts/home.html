@@ -1,0 +1,174 @@
+---
+layout: default
+---
+
+{% include base_path %}
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__text">
+      <p class="hero__greeting">Hello, I'm</p>
+      <h1 class="hero__name">{{ site.author.name }}</h1>
+      <div class="hero__tagline">
+        <span class="hero__tagline-text" id="typed-tagline"></span>
+        <span class="hero__cursor">|</span>
+      </div>
+      <p class="hero__bio">{{ page.hero_bio }}</p>
+      <div class="hero__actions">
+        <a href="{{ base_path }}/projects/" class="btn btn--accent">View Projects</a>
+        <a href="{{ base_path }}/publications/" class="btn btn--outline">Publications</a>
+        <a href="{{ base_path }}/cv/" class="btn btn--outline">Curriculum Vitae</a>
+      </div>
+      <div class="hero__social">
+        {% if site.author.github %}<a href="https://github.com/{{ site.author.github }}" aria-label="GitHub"><i class="fab fa-github"></i></a>{% endif %}
+        {% if site.author.linkedin %}<a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>{% endif %}
+        {% if site.author.googlescholar %}<a href="{{ site.author.googlescholar }}" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+        {% if site.author.orcid %}<a href="{{ site.author.orcid }}" aria-label="ORCID"><i class="ai ai-orcid"></i></a>{% endif %}
+        {% if site.author.twitter %}<a href="https://twitter.com/{{ site.author.twitter }}" aria-label="X"><i class="fab fa-x-twitter"></i></a>{% endif %}
+      </div>
+    </div>
+    <div class="hero__image">
+      <div class="hero__avatar-wrapper">
+        <img src="{{ base_path }}/images/{{ site.author.avatar }}" alt="{{ site.author.name }}" class="hero__avatar">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="home-section">
+  <h2 class="section-heading"><span class="section-heading__accent">//</span> About Me</h2>
+  {{ content }}
+</section>
+
+<!-- Skills Section -->
+<div class="home-section--alt">
+  <section class="home-section home-section__inner">
+    <h2 class="section-heading"><span class="section-heading__accent">//</span> Skills &amp; Tools</h2>
+
+    <div class="skills-group">
+      <h3 class="skills-group__title">Programming &amp; Data</h3>
+      <div class="skill-tags">
+        {% for skill in page.skills_programming %}
+          <span class="skill-tag">{{ skill }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <h3 class="skills-group__title">Machine Learning &amp; AI</h3>
+      <div class="skill-tags">
+        {% for skill in page.skills_ml %}
+          <span class="skill-tag skill-tag--ml">{{ skill }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <h3 class="skills-group__title">GenAI &amp; NLP</h3>
+      <div class="skill-tags">
+        {% for skill in page.skills_genai %}
+          <span class="skill-tag skill-tag--ml">{{ skill }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <h3 class="skills-group__title">Astrophysics &amp; Science</h3>
+      <div class="skill-tags">
+        {% for skill in page.skills_astro %}
+          <span class="skill-tag skill-tag--astro">{{ skill }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Featured Projects Section -->
+<section class="home-section">
+  <h2 class="section-heading"><span class="section-heading__accent">//</span> Featured Projects</h2>
+  <div class="project-cards">
+    {% for project in page.featured_projects %}
+      <div class="project-card">
+        <div class="project-card__header">
+          <div class="project-card__icon">
+            <i class="{{ project.icon | default: 'fas fa-code' }}"></i>
+          </div>
+        </div>
+        <h3 class="project-card__title">{{ project.title }}</h3>
+        <p class="project-card__desc">{{ project.description }}</p>
+        <div class="project-card__tags">
+          {% for tag in project.tags %}
+            <span class="project-card__tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <div class="project-card__links">
+          {% if project.github %}<a href="{{ project.github }}" class="project-card__link"><i class="fab fa-github"></i> Code</a>{% endif %}
+          {% if project.demo %}<a href="{{ project.demo }}" class="project-card__link"><i class="fas fa-external-link-alt"></i> Demo</a>{% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="section-cta">
+    <a href="{{ base_path }}/projects/" class="btn btn--outline">View All Projects &rarr;</a>
+  </div>
+</section>
+
+<!-- Recent Publications Section -->
+<div class="home-section--alt">
+  <section class="home-section home-section__inner">
+    <h2 class="section-heading"><span class="section-heading__accent">//</span> Recent Publications</h2>
+    <div class="pub-list">
+      {% assign sorted_pubs = site.publications | sort: 'date' | reverse %}
+      {% for post in sorted_pubs limit:5 %}
+        <div class="pub-item">
+          <span class="pub-item__year">{{ post.date | date: "%Y" }}</span>
+          <div class="pub-item__content">
+            <a href="{{ base_path }}{{ post.url }}" class="pub-item__title">{{ post.title }}</a>
+            {% if post.venue %}<p class="pub-item__venue">{{ post.venue }}</p>{% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="section-cta">
+      <a href="{{ base_path }}/publications/" class="btn btn--outline">All Publications &rarr;</a>
+    </div>
+  </section>
+</div>
+
+<!-- Typing animation -->
+<script>
+(function() {
+  var phrases = [
+    'Astrophysicist',
+    'Data Scientist',
+    'Machine Learning Enthusiast',
+    'Galaxy Evolution Researcher'
+  ];
+  var el = document.getElementById('typed-tagline');
+  if (!el) return;
+  var phraseIdx = 0, charIdx = 0, isDeleting = false;
+  function type() {
+    var current = phrases[phraseIdx];
+    if (isDeleting) {
+      el.textContent = current.substring(0, charIdx - 1);
+      charIdx--;
+    } else {
+      el.textContent = current.substring(0, charIdx + 1);
+      charIdx++;
+    }
+    var delay = isDeleting ? 40 : 80;
+    if (!isDeleting && charIdx === current.length) {
+      delay = 2200;
+      isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      phraseIdx = (phraseIdx + 1) % phrases.length;
+      delay = 400;
+    }
+    setTimeout(type, delay);
+  }
+  type();
+})();
+</script>
