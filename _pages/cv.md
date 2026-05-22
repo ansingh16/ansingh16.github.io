@@ -9,9 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
-<div class="cv-download">
-  <a href="../files/Ankit_cv.pdf" class="btn btn--accent"><i class="fas fa-download"></i> Download Full CV</a>
-</div>
 
 <h2 class="section-heading"><span class="section-heading__accent">//</span> Experience</h2>
 
@@ -19,10 +16,10 @@ redirect_from:
   <div class="timeline-item">
     <div class="timeline-item__marker"></div>
     <div class="timeline-item__content">
-      <span class="timeline-item__date">2024 &ndash; Present</span>
+      <span class="timeline-item__date">2025 &ndash; Present</span>
       <h3 class="timeline-item__title">Research Fellow</h3>
       <p class="timeline-item__org">University of Nottingham, United Kingdom</p>
-      <p class="timeline-item__desc">Galaxy evolution research with Prof. Meghan Gray and Frazer Pearce using cosmological simulations.</p>
+      <p class="timeline-item__desc">Galaxy evolution research with Prof. Meghan Gray and Prof. Frazer Pearce using cosmological simulations.</p>
     </div>
   </div>
   <div class="timeline-item">

@@ -3,7 +3,7 @@ permalink: /
 title: "Ankit Singh"
 layout: home
 author_profile: false
-hero_bio: "Research Fellow exploring galaxy evolution through cosmological simulations and leveraging data science to solve real-world problems."
+hero_bio: "Data Scientist with a PhD in Physics — applying machine learning, statistical modeling, and large-scale data pipelines to both industry and research problems."
 skills_programming:
   - Python
   - SQL
@@ -51,7 +51,7 @@ skills_astro:
   - AGN
 featured_projects:
   - title: "UK Accident Severity Classification"
-    description: "Dual-strategy ML models (LightGBM, Random Forest) with ADASYN and SMOTE+Tomek on 151K accidents, achieving 99.7% recall for severe cases."
+    description: "Dual-strategy ML system on 151K UK road accidents: emergency response model achieving 92.4% severe recall and traffic management model with 81% macro recall using SMOTE+Tomek and ADASYN."
     tags: ["LightGBM", "Scikit-learn", "SMOTE"]
     icon: "fas fa-car-crash"
     github: "https://github.com/ansingh16/UK_road_safety_modelling"
@@ -76,6 +76,6 @@ redirect_from:
   - /about.html
 ---
 
-I am a Research Fellow at the **University of Nottingham**, working at the intersection of astrophysics and computational science. My research focuses on understanding galaxy evolution within the cosmic web using state-of-the-art cosmological hydrodynamical simulations like Horizon Run 5 and EAGLE.
+I build machine learning models, data pipelines, and deployed applications across domains — from classifying 151K road accidents and optimizing traffic signals with reinforcement learning, to RAG chatbots and quantitative finance toolkits. My PhD in Physics and 10+ years of research gave me deep experience with terabyte-scale datasets, statistical modeling, and HPC — skills that transfer directly to data science at scale.
 
-With a strong foundation in physics and growing expertise in data science, I apply advanced statistical modeling, machine learning, and data analytics to both scientific research and industry problems — from financial modeling and computer vision to time series forecasting. I hold two applied data science certifications from WorldQuant University and have authored 12 peer-reviewed publications with 100+ citations.
+Currently a Research Fellow at the **University of Nottingham**, I also hold two applied data science certifications from WorldQuant University (ML/CV and Applied DS) and have authored 12 peer-reviewed publications with 100+ citations.
