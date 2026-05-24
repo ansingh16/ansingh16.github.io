@@ -17,6 +17,8 @@ skills_programming:
   - Linux
   - HPC (MPI/Slurm)
   - Jupyter
+  - Streamlit Cloud
+  - GitHub Pages
 skills_ml:
   - PyTorch
   - Scikit-learn
@@ -61,7 +63,7 @@ featured_projects:
     icon: "fas fa-robot"
     github: "https://github.com/ansingh16/UK_visa_RAG"
   - title: "RL Traffic Signal Control"
-    description: "Reinforcement learning agent trained on real TfL API traffic data to optimize intersection signal timing and reduce vehicle wait time."
+    description: "Deep RL agent trained on real Transport for London API traffic flow data to learn adaptive signal timing policies for a single intersection, replacing fixed-cycle control."
     tags: ["Deep RL", "PyTorch", "API"]
     icon: "fas fa-traffic-light"
     github: "https://github.com/ansingh16/RL_signal_control"

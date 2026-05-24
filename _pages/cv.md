@@ -166,6 +166,8 @@ redirect_from:
       <span class="skill-tag">Linux</span>
       <span class="skill-tag">HDF5</span>
       <span class="skill-tag">ETL Pipelines</span>
+      <span class="skill-tag">Streamlit Cloud</span>
+      <span class="skill-tag">GitHub Pages</span>
     </div>
   </div>
   <div class="cv-skill-category">

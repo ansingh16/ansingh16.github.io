@@ -127,7 +127,7 @@ author_profile: true
       <div class="project-card__category">Reinforcement Learning</div>
     </div>
     <h3 class="project-card__title">RL Traffic Signal Control</h3>
-    <p class="project-card__desc">Trained a reinforcement learning agent to control a single traffic light at an intersection using real traffic patterns from the TfL API to minimize vehicle waiting time.</p>
+    <p class="project-card__desc">Deep RL agent that learns adaptive signal timing policies for a single intersection using real traffic flow data from the Transport for London API, replacing fixed-cycle control with a learned policy trained via PyTorch.</p>
     <div class="project-card__tags">
       <span class="project-card__tag">Deep RL</span>
       <span class="project-card__tag">PyTorch</span>
@@ -167,7 +167,7 @@ author_profile: true
       <div class="project-card__category">Risk Analytics</div>
     </div>
     <h3 class="project-card__title">Risk Management Toolkit</h3>
-    <p class="project-card__desc">Comprehensive risk analysis: MACD, Bollinger Bands, PSAR, stochastic oscillators, CAPM, Sharpe/Treynor/Jensen metrics, historical &amp; parametric VaR, plus signal denoising with Kalman filters and wavelet transforms.</p>
+    <p class="project-card__desc">End-to-end risk analytics pipeline: raw price data is denoised with Kalman filters and wavelet transforms, fed into technical indicators (MACD, Bollinger, PSAR, stochastic oscillators), then evaluated via historical &amp; parametric VaR, CAPM beta, and Sharpe/Treynor/Jensen performance metrics.</p>
     <div class="project-card__tags">
       <span class="project-card__tag">VaR</span>
       <span class="project-card__tag">CAPM</span>
@@ -185,7 +185,7 @@ author_profile: true
       <div class="project-card__category">Time Series</div>
     </div>
     <h3 class="project-card__title">Time Series Forecasting</h3>
-    <p class="project-card__desc">Equity price modeling with ARIMA, GARCH, CCC-GARCH, and Prophet. Rolling &amp; fixed window forecasting, bootstrap simulation, and volatility analysis using Yahoo Finance data.</p>
+    <p class="project-card__desc">Comparative equity modeling: ARIMA for trend forecasting, GARCH for volatility clustering, CCC-GARCH for multi-asset portfolio-level forecasting, and Prophet for seasonality. Includes rolling &amp; fixed window evaluation, bootstrap simulation, and model diagnostics on Yahoo Finance data.</p>
     <div class="project-card__tags">
       <span class="project-card__tag">ARIMA</span>
       <span class="project-card__tag">GARCH</span>
@@ -203,7 +203,7 @@ author_profile: true
       <div class="project-card__category">Backtesting</div>
     </div>
     <h3 class="project-card__title">Backtesting Framework</h3>
-    <p class="project-card__desc">Strategy backtesting engine using VectorBT, progressing from simple MA-based strategies to ML-enhanced signals with volatility-adjusted GARCH components.</p>
+    <p class="project-card__desc">Strategy backtesting engine built on VectorBT's vectorized execution, progressing from moving-average crossover strategies to volatility-regime-aware ML signals incorporating GARCH-estimated conditional variance.</p>
     <div class="project-card__tags">
       <span class="project-card__tag">VectorBT</span>
       <span class="project-card__tag">GARCH</span>
@@ -254,7 +254,7 @@ author_profile: true
       <div class="project-card__category">Web App</div>
     </div>
     <h3 class="project-card__title">Mutual Fund Analyzer</h3>
-    <p class="project-card__desc">Deployed Streamlit app using Morningstar data for portfolio analysis — sectoral distribution, scheme comparison, valuations, and company exposure tracking.</p>
+    <p class="project-card__desc">Live Streamlit Cloud app that ingests Morningstar fund data to build multi-fund portfolios and analyze them across sectoral distribution, scheme comparison, valuations, and top company exposure.</p>
     <div class="project-card__tags">
       <span class="project-card__tag">Streamlit</span>
       <span class="project-card__tag">Altair</span>
@@ -272,7 +272,7 @@ author_profile: true
       <div class="project-card__category">Web App</div>
     </div>
     <h3 class="project-card__title">NSE Stocks Dashboard</h3>
-    <p class="project-card__desc">Streamlit dashboard for real-time stock analysis and monitoring of equities listed on the National Stock Exchange of India.</p>
+    <p class="project-card__desc">Streamlit dashboard fetching live data from the NSE API for real-time stock analysis, price monitoring, and technical charting of equities listed on the National Stock Exchange of India.</p>
     <div class="project-card__tags">
       <span class="project-card__tag">Streamlit</span>
       <span class="project-card__tag">Finance</span>
