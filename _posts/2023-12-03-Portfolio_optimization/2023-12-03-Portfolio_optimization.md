@@ -13,11 +13,9 @@ Code for portfolio optimization using Modern Portfolio Theory.
 
 # Modern Portfolio Theory (MPT)
 
-Modern Portfolio Theory (MPT), developed by economist Harry Markowitz in the 1950s, is a framework for constructing investment portfolios that aim to maximize expected returns for a given level of risk or minimize the level of risk for a given expected return. 
-MPT revolutionized the way investors think about diversification and risk management. 
-Modern Portfolio Theory has had a profound impact on investment strategy and asset allocation, providing a systematic approach to balancing risk and return in investment portfolios. 
+Modern Portfolio Theory (MPT), developed by Harry Markowitz in the 1950s, gives you a way to construct portfolios that maximize expected return for a given risk level (or equivalently, minimize risk for a given return). The core idea is that diversification across imperfectly correlated assets can reduce portfolio variance below the variance of any individual holding.
 
-In this notebook we will be implementing the portfolio optimization from scratch and then use some packages to automate it. Later we will also look at different volatility calculations and how it affects the results.
+In this notebook we implement portfolio optimization from scratch and then use packages to automate it. We also compare different volatility estimation methods and see how they affect the results.
 
 ## Equally-weighted portfolio
 
@@ -195,8 +193,6 @@ $$ \sum_{i=1}^{n} w_i = 1 $$
 
 Where:
 - $$ \text{Target Expected Return} $$ is the desired level of expected return for the portfolio.
-
-These optimization problems are typically solved using mathematical optimization techniques. The solutions will give you the set of portfolio weights that achieve the specified objectives.
 
 ## Efficient Frontier Using Monte Carlo
 
@@ -585,16 +581,7 @@ max( \omega^T\mu -& \gamma \omega^T \Sigma \omega)\\
 
 Here, $$\gamma \in [0,\infty)$$ is risk aversion parameter. Higher value suggest more risk aversion.
 
-This problem can now be solved using convex optimization which is easier to solve. 
-
-Key characteristics of convex optimization include:
-
-- Objective Function Convexity:The objective function to be minimized (or maximized) is convex. A function is convex if, for any two points in its domain, the line segment connecting these two points lies above the graph of the function.
-- Convex Constraints: If there are inequality constraints, they must also be convex. For example, a convex constraint is one where the feasible region is a convex set.
-
-- Unique Global Minimum: Convex optimization problems have the property that any local minimum is also a global minimum. This simplifies the search for the optimal solution.
-
-- Efficient Algorithms: Convex optimization problems have efficient algorithms for finding the global minimum. Some well-known algorithms include the interior-point methods and gradient descent.
+This is a convex problem (quadratic objective, linear constraints), so any local minimum is the global minimum. We can solve it with `cvxpy`.
 
 
 ```python
@@ -695,14 +682,9 @@ results_df.plot(kind="scatter", x="volatility",y="returns", c="sharpe_ratio",cma
 **Maximum allowed Leverage**
 
 
-The maximum allowable leverage in portfolio optimization refers to the highest level of borrowed funds or debt that an investor can use to invest in a portfolio. 
-Leverage is often expressed as a ratio of the total value of the investment to the investor's own capital. 
-For example, a leverage ratio of 2:1 means that for every $$1 of the investor's own capital, they can borrow an additional $$2.
+Leverage lets you borrow to invest more than your own capital. A leverage ratio of 2:1 means for every $1 of your capital, you can invest $2 total. Higher leverage amplifies both gains and losses.
 
-In the context of portfolio optimization, the maximum allowable leverage is a critical parameter as it determines the risk and potential return of the portfolio. 
-Higher leverage allows investors to amplify both gains and losses.
-
-We can incorporate maximum allowed leverage into the analysis done above by restricting the norm of weight vector to maximum leverage.
+We can add a leverage constraint by bounding the L1 norm of the weight vector:
 
 
 ```python
@@ -798,21 +780,16 @@ Traditional optimization methods depend on inverting covariance matrix. They are
 
 ## Hierarchical Risk Parity
 
-Hierarchical Risk Parity (HRP) is a portfolio optimization technique that aims to allocate assets in a way that maximizes diversification and minimizes risk. It was introduced by Marcos Lopez de Prado. HRP differs from traditional mean-variance optimization by focusing on the hierarchical structure of the covariance matrix of asset returns.
+Hierarchical Risk Parity (HRP), introduced by Marcos Lopez de Prado, takes a different approach from mean-variance optimization. Instead of inverting the covariance matrix (which is unstable when assets are correlated), it uses hierarchical clustering to group similar assets and then allocates inversely proportional to each cluster's variance.
 
-Here's a brief explanation of the key steps involved in HRP:
+The steps:
 
-1. **Dendrogram Construction:** HRP begins by constructing a dendrogram (tree diagram) that represents the hierarchical clustering of assets based on their pairwise correlation or covariance. This hierarchical structure captures the relationships between different assets.
+1. **Dendrogram construction** — cluster assets by pairwise correlation into a tree structure.
+2. **Recursive bisection** — split the tree into sub-clusters at each level.
+3. **Inverse variance weighting** — within each cluster, weight assets inversely by their variance (lower-risk assets get more weight).
+4. **Bottom-up allocation** — repeat at each level of the hierarchy, then combine into final portfolio weights.
 
-2. **Recursive Bisection:** The dendrogram is then recursively bisected to form clusters of assets at different levels of the hierarchy. The idea is to group together assets that are more closely related in terms of risk and return characteristics.
-
-3. **Inverse Variance Weighting:** Within each cluster, HRP assigns weights to assets based on their inverse variance (or equivalently, inverse risk). Assets with lower risk contribute more to the portfolio within a given cluster.
-
-4. **Allocation at Each Level:** The process is repeated at each level of the hierarchy, recursively assigning weights to the clusters based on inverse variance. This hierarchical approach allows for a more nuanced allocation, capturing both global and local diversification benefits.
-
-5. **Final Portfolio Construction:** The final portfolio is constructed by combining the weighted clusters from the lowest level of the hierarchy to the top.
-
-HRP is particularly useful when dealing with a large number of assets, as it efficiently captures the diversification benefits inherent in the hierarchical structure of the covariance matrix. It can be more robust in the face of estimation errors compared to traditional mean-variance optimization.
+The main advantage over mean-variance: HRP doesn't require inverting the covariance matrix, so it's more stable when you have many correlated assets or limited data.
 
 
 
@@ -960,10 +937,7 @@ print(f"Leftover: {leftover}")
 
 ### Efficient Forntier using PyPortfolioOpt
 
-Traditional sample covariance matrices can be noisy, especially when the number of assets is small relative to the number of observations. 
-We can use Ledoit-Wolf shrinkage estimate of the covariance matrix. 
-The idea is to find a compromise between the sample covariance matrix and a target matrix that assumes a certain structure for the true covariance matrix.
-The target matrix is typically chosen to be a multiple of the identity matrix.
+Sample covariance matrices get noisy when you have few observations relative to the number of assets. Ledoit-Wolf shrinkage addresses this by blending the sample covariance with a structured target (typically a scaled identity matrix), reducing estimation error.
 
 
 

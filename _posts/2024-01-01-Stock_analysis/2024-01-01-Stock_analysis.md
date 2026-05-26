@@ -275,35 +275,13 @@ stocks[['Bollinger High','Close','Bollinger Low']].plot(ylabel='Bollinger Band')
 
 ### PSAR strategy
 
-The PSAR strategy, also known as the Parabolic Stop and Reverse strategy, is a technical analysis tool used by traders to identify potential entry and exit points in a trending market. Parabolic SAR (PSAR) is primarily used to trail stop-loss orders and determine the direction of a trend.  The parabolic SAR recommends us to buy if the SAR line is below the closing price and to sell if the SAR is above the closing price. 
+Parabolic SAR (Stop and Reverse) is a trend-following indicator that places dots above or below the price to signal direction. Buy when the SAR is below the closing price; sell when it flips above.
 
-Here's an explanation of the PSAR strategy:
+The calculation tracks two values each period:
+- **Extreme Point (EP)**: the highest high (uptrend) or lowest low (downtrend) seen so far
+- **Acceleration Factor (AF)**: starts at 0.02, increases by 0.02 each time a new EP is hit, capped at 0.20
 
-Calculation of the Parabolic SAR:
-
-The PSAR is calculated for each period and plotted on a price chart. The calculation involves two primary components: the extreme point (EP) and the acceleration factor (AF).
-Initially, the PSAR starts with an arbitrary point as the EP and sets the AF to a predefined value (commonly 0.02).
-
-- As the price moves, the EP is updated based on whether the price reaches new highs or lows.
-The AF also increases each time a new EP is established, up to a predetermined maximum (commonly 0.20).
-The PSAR value is then calculated using the formula and plotted on the chart.
-PSAR in Uptrends and Downtrends:
-
-- In an uptrend, the PSAR dots appear below the price bars, acting as trailing stop-loss levels. These levels rise over time.
-In a downtrend, the PSAR dots appear above the price bars, again serving as trailing stop-loss levels. These levels decline over time.
-Signal Generation:
-
-- Entry signals are generated when the price crosses the PSAR level. For example, in an uptrend, when the price crosses above the PSAR dot, it can be seen as a signal to go long (buy).
-Exit signals are generated when the PSAR flips sides. For example, if you are in a long position (buy), and the PSAR switches from being below the price bars to above them, it could be a signal to exit the position.
-Trend Identification:
-
-- The PSAR can also help identify the direction of the trend. If the PSAR dots are below the price bars, it suggests an uptrend. If they are above the price bars, it suggests a downtrend.
-Acceleration Factor:
-
-- The acceleration factor (AF) plays a role in how quickly the PSAR moves in response to price changes. Higher AF values make the PSAR react more swiftly, which can result in more frequent signals.
-Stop-Loss Management:
-
-Traders often use the PSAR levels as dynamic trailing stop-loss orders. As the trend progresses, they move the stop-loss orders closer to the PSAR dots to protect profits.
+Each period, the SAR moves toward the EP by `AF * (EP - SAR)`. When price crosses the SAR, the trend reverses: the SAR resets to the previous EP and the AF resets to 0.02. In practice, the dots act as a trailing stop-loss that tightens as the trend extends.
 
 
 ```python

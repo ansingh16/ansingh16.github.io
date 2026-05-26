@@ -96,4 +96,4 @@ The traffic management model achieves 81% macro recall, distributing its predict
 
 4. **Two models can be better than one.** When stakeholders have genuinely different loss functions, a single model forces a compromise that serves no one well. Building separate models with separate resampling strategies and thresholds gives each stakeholder a tool optimized for their actual decision.
 
-5. **SMOTE+Tomek showed consistent effectiveness.** Across both model configurations, SMOTE+Tomek produced reliable improvements in minority-class detection, making it a strong default choice for extreme imbalance problems.
+5. **SMOTE+Tomek is a reasonable default.** It improved minority-class recall in both model configurations. If you're unsure which resampling method to start with on an extreme-imbalance problem, it's a solid first choice.
