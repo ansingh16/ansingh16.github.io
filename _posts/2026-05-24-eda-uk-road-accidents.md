@@ -1,7 +1,7 @@
 ---
 title: 'Exploring 151K UK Road Accidents: An EDA Walkthrough'
-date: 2025-05-24
-permalink: /posts/2025/05/eda-uk-road-accidents/
+date: 2026-05-24
+permalink: /posts/2026/05/eda-uk-road-accidents/
 tags:
   - eda
   - data-science
@@ -9,7 +9,7 @@ tags:
   - visualization
 ---
 
-Before building any model, you need to understand the data well enough to make defensible modeling decisions. This post walks through how I approached exploratory data analysis on the UK Department for Transport's 2023 road accident dataset — 151,852 incidents across three linked files. The EDA directly shaped the dual-model classification strategy I described in my [class imbalance post](/posts/2025/05/class-imbalance-uk-road-safety/).
+Before building any model, you need to understand the data well enough to make defensible modeling decisions. This post walks through how I approached exploratory data analysis on the UK Department for Transport's 2023 road accident dataset — 151,852 incidents across three linked files. The EDA directly shaped the dual-model classification strategy I described in my [class imbalance post](/posts/2026/05/class-imbalance-uk-road-safety/).
 
 The project code is on [GitHub](https://github.com/ansingh16/UK_road_safety_modelling).
 
@@ -53,7 +53,7 @@ collisions["accident_severity"].value_counts()
 | Serious  | ~32,000  | 21%       |
 | Fatal    | ~2,100   | 1.4%      |
 
-This immediately tells you that any model optimized for accuracy will get ~77% by predicting "Slight" for every case. The fatal class at 1.4% is practically invisible to a standard classifier. This single observation drove the entire modeling strategy — two separate models with different resampling approaches, detailed in the [companion post](/posts/2025/05/class-imbalance-uk-road-safety/).
+This immediately tells you that any model optimized for accuracy will get ~77% by predicting "Slight" for every case. The fatal class at 1.4% is practically invisible to a standard classifier. This single observation drove the entire modeling strategy — two separate models with different resampling approaches, detailed in the [companion post](/posts/2026/05/class-imbalance-uk-road-safety/).
 
 ## Feature Categories
 

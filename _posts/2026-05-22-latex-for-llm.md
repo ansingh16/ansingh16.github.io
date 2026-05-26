@@ -1,7 +1,7 @@
 ---
 title: 'LatexForLLM: Turning LaTeX Papers into Graphs for Smarter LLM Retrieval'
-date: 2025-05-22
-permalink: /posts/2025/05/latex-for-llm/
+date: 2026-05-22
+permalink: /posts/2026/05/latex-for-llm/
 tags:
   - llm
   - latex

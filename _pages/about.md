@@ -3,7 +3,7 @@ permalink: /
 title: "Ankit Singh"
 layout: home
 author_profile: false
-hero_bio: "Data Scientist with a PhD in Physics — applying machine learning, statistical modeling, and large-scale data pipelines to both industry and research problems."
+hero_bio: "Data Scientist with a PhD in Physics. I build ML models, data pipelines, and deployed apps — background in statistical modeling and terabyte-scale scientific computing."
 skills_programming:
   - Python
   - SQL
@@ -78,6 +78,6 @@ redirect_from:
   - /about.html
 ---
 
-I build machine learning models, data pipelines, and deployed applications across domains — from classifying 151K road accidents and optimizing traffic signals with reinforcement learning, to RAG chatbots and quantitative finance toolkits. My PhD in Physics and 10+ years of research gave me deep experience with terabyte-scale datasets, statistical modeling, and HPC — skills that transfer directly to data science at scale.
+I'm a Research Fellow at the **University of Nottingham** with a PhD in Physics and 10+ years working with terabyte-scale simulation data, statistical modeling, and HPC. Recent projects include a dual-model classifier for 151K UK road accidents, a deep RL agent for traffic signal control, RAG chatbots, and quantitative finance tools.
 
-Currently a Research Fellow at the **University of Nottingham**, I also hold two applied data science certifications from WorldQuant University (ML/CV and Applied DS) and have authored 12 peer-reviewed publications with 100+ citations.
+I'm an ISO/IEC 42001 certified practitioner (AI Management Systems) and AI+ Foundation certified, with additional applied data science credentials from WorldQuant University. 12 peer-reviewed publications, 100+ citations.

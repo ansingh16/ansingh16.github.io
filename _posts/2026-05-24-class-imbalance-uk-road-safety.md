@@ -1,7 +1,7 @@
 ---
 title: 'Tackling Extreme Class Imbalance: A Dual-Strategy Approach for UK Road Accident Severity'
-date: 2025-05-24
-permalink: /posts/2025/05/class-imbalance-uk-road-safety/
+date: 2026-05-24
+permalink: /posts/2026/05/class-imbalance-uk-road-safety/
 tags:
   - machine-learning
   - class-imbalance

@@ -28,7 +28,7 @@ redirect_from:
       <span class="timeline-item__date">2020 &ndash; 2024</span>
       <h3 class="timeline-item__title">Research Fellow</h3>
       <p class="timeline-item__org">Korea Institute for Advanced Study (KIAS), Seoul</p>
-      <p class="timeline-item__desc">Led data-intensive research projects involving terabytes of simulated data. Designed Python-based feature extraction and preprocessing pipelines. Published 6 papers on AGN, ICL, and galaxy evolution in HR5.</p>
+      <p class="timeline-item__desc">Worked with terabyte-scale cosmological simulation data (Horizon Run 5). Built Python pipelines for feature extraction and preprocessing. Published 6 papers on AGN, ICL, and galaxy evolution.</p>
     </div>
   </div>
   <div class="timeline-item">
@@ -37,7 +37,7 @@ redirect_from:
       <span class="timeline-item__date">2014 &ndash; 2020</span>
       <h3 class="timeline-item__title">Ph.D. Research</h3>
       <p class="timeline-item__org">IISER Mohali, India</p>
-      <p class="timeline-item__desc">Used SQL and clustering algorithms to analyze complex datasets. Developed simulation pipelines and analytical models for galaxy evolution in large-scale structures.</p>
+      <p class="timeline-item__desc">Developed simulation pipelines and analytical models for galaxy evolution in large-scale structures. Used SQL and clustering algorithms for catalog analysis.</p>
     </div>
   </div>
 </div>
@@ -82,7 +82,7 @@ redirect_from:
       <span class="timeline-item__date">July 2025</span>
       <h3 class="timeline-item__title">Applied Data Science Program</h3>
       <p class="timeline-item__org">WorldQuant University (Remote)</p>
-      <p class="timeline-item__desc">Eight projects spanning regression, classification, clustering, time series forecasting, A/B testing, and volatility modeling. Built predictive models and deployed interactive dashboards.</p>
+      <p class="timeline-item__desc">Eight projects: regression, classification, clustering, time series forecasting, A/B testing, and volatility modeling. Deployed results as interactive dashboards.</p>
     </div>
   </div>
   <div class="timeline-item">
@@ -91,7 +91,7 @@ redirect_from:
       <span class="timeline-item__date">September 2025</span>
       <h3 class="timeline-item__title">ISO/IEC 42001 Practitioner</h3>
       <p class="timeline-item__org">TRECCERT</p>
-      <p class="timeline-item__desc">Certified practitioner in the ISO/IEC 42001 standard for AI Management Systems (AIMS). Ability to interpret and apply AIMS requirements and guidelines in the workplace.</p>
+      <p class="timeline-item__desc">ISO/IEC 42001 standard for AI Management Systems (AIMS).</p>
     </div>
   </div>
   <div class="timeline-item">
@@ -100,7 +100,7 @@ redirect_from:
       <span class="timeline-item__date">October 2025</span>
       <h3 class="timeline-item__title">AI+ Foundation</h3>
       <p class="timeline-item__org">AI CERTs</p>
-      <p class="timeline-item__desc">Foundational certification covering core AI concepts, techniques, and responsible AI practices.</p>
+      <p class="timeline-item__desc">Core AI concepts, techniques, and responsible AI practices.</p>
     </div>
   </div>
 </div>
