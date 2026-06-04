@@ -109,15 +109,16 @@ author_profile: true
       <div class="project-card__category">Classification</div>
     </div>
     <h3 class="project-card__title">UK Accident Severity Classification</h3>
-    <p class="project-card__desc">Dual-strategy ML system on 151K UK road accidents: an emergency response model (LightGBM, 92.4% severe recall) and a traffic management model (81% macro recall) using SMOTE+Tomek, ADASYN, and custom threshold optimization.</p>
+    <p class="project-card__desc">Dual-strategy LightGBM classifiers on 104K DfT STATS19 collisions merged with 190K vehicle records (42 features). Severe-optimized model (0.527 macro recall, 66.8% accuracy) with threshold tuning for adjustable recall-accuracy tradeoff. Results benchmarked against published studies on the same dataset.</p>
     <div class="project-card__tags">
       <span class="project-card__tag">LightGBM</span>
-      <span class="project-card__tag">Scikit-learn</span>
-      <span class="project-card__tag">SMOTE</span>
-      <span class="project-card__tag">ADASYN</span>
+      <span class="project-card__tag">Feature Engineering</span>
+      <span class="project-card__tag">Imbalanced Classification</span>
+      <span class="project-card__tag">Streamlit</span>
     </div>
     <div class="project-card__links">
       <a href="https://github.com/ansingh16/UK_road_safety_modelling" class="project-card__link"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://uk-road-safety-modelling.streamlit.app/" class="project-card__link"><i class="fas fa-external-link-alt"></i> Live App</a>
     </div>
   </div>
 

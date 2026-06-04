@@ -1,99 +1,125 @@
 ---
-title: 'Tackling Extreme Class Imbalance: A Dual-Strategy Approach for UK Road Accident Severity'
+title: 'Tackling Extreme Class Imbalance: UK Road Accident Severity with LightGBM'
 date: 2026-05-24
 permalink: /posts/2026/05/class-imbalance-uk-road-safety/
 tags:
   - machine-learning
   - class-imbalance
   - lightgbm
-  - smote
+  - feature-engineering
 ---
 
-When 98.6% of your labels belong to a single class, standard classifiers will happily predict the majority class every time and report impressive accuracy. This post walks through how I handled extreme class imbalance in a real dataset — 151,852 UK road accidents from 2023 — and why I ended up building two separate models instead of one.
+When 76% of your labels belong to a single class and the rarest class sits at 1.4%, standard classifiers will happily predict the majority class every time and report impressive accuracy. This post walks through what I learned building a severity classifier on 104,258 UK road collisions from the Department for Transport's 2023 STATS19 data, and why the numbers that looked great at first turned out to be completely wrong.
 
-The project code is on [GitHub](https://github.com/ansingh16/UK_road_safety_modelling).
+The project code and a live Streamlit dashboard are on [GitHub](https://github.com/ansingh16/UK_road_safety_modelling) and at [uk-road-safety-modelling.streamlit.app](https://uk-road-safety-modelling.streamlit.app/).
 
-## The Dataset
+## The dataset
 
-The UK Department for Transport publishes detailed records for every reported road accident. The 2023 release comprises three linked CSV files:
-
-- **Collisions**: accident-level data — location (lat/lon), date and time, road type, speed limit, weather, lighting, road surface conditions
-- **Vehicles**: vehicle-level data — type, manoeuvre, junction location, first point of impact
-- **Casualties**: person-level data — severity of injury, age, sex, pedestrian movement
-
-After merging and cleaning, the dataset contains 151,852 incidents distributed across three severity classes:
+The DfT publishes three linked CSV files each year: collisions (one row per accident), vehicles (one row per vehicle involved), and casualties (one row per person injured). I used the collision and vehicle tables --- 104,258 collisions and 189,815 vehicle records.
 
 | Severity | Count | Percentage |
 |----------|-------|------------|
-| Slight   | ~117K | 77%        |
-| Serious  | ~32K  | 21%        |
-| Fatal    | ~2K   | 1.4%       |
+| Slight   | ~79K  | 76.1%      |
+| Serious  | ~23K  | 22.5%      |
+| Fatal/Severe | ~1.5K | 1.4%  |
 
-Fatal accidents make up just 1.4% of the data. Any model trained on raw class proportions will learn to almost never predict "fatal" — which is exactly the wrong behavior if the goal is to catch life-threatening incidents.
+A model that always predicts "Slight" gets 76% accuracy for free. Accuracy is the wrong metric here.
 
-## Why Two Models, Not One
+## The feature signal problem
 
-Different stakeholders need different things from the same data:
+Before worrying about class imbalance, I wanted to understand how much predictive power the features actually carry. I computed the mutual information between each numeric feature and the target.
 
-**Emergency services** need to pre-position resources for accidents likely to be severe. For them, missing a fatal accident (false negative) is far worse than dispatching an extra ambulance that turns out to be unnecessary (false positive). The priority is **recall on the fatal/severe class**.
+The result was sobering. Average MI across all collision features was 0.011. For reference, anything above 0.05 is considered moderate signal. The strongest individual features --- `did_police_officer_attend`, `number_of_vehicles`, `speed_limit` --- barely reached 0.03. Most features were below 0.01.
 
-**Traffic management teams** allocate long-term resources — speed cameras, road redesigns, safety campaigns. They need a balanced view across all severity levels. Over-predicting severe cases wastes budget; under-predicting slight cases misses prevention opportunities. The priority is **balanced performance across all classes (macro recall)**.
+This makes sense when you think about it. The collision table records the scene: road type, weather, lighting, speed limit, time of day. Whether someone dies in a crash depends on things like seatbelt use, exact impact angle, occupant age and frailty, vehicle safety rating --- none of which are in this dataset. We're trying to predict outcome from context, and context is a weak predictor.
 
-Trying to optimize for both objectives in a single model means compromising on each. Instead, I built two separate LightGBM classifiers, each with its own resampling strategy and decision threshold.
+## The leakage problem
 
-## Resampling: SMOTE+Tomek vs ADASYN
+My first models looked surprisingly good. A Random Forest with SMOTE+Tomek resampling was hitting 92% recall on severe cases. The feature importance plot told me why: a column called `enhanced_severity_collision` was dominating. A crosstab confirmed it mapped almost perfectly to the target --- it was a recoded version of `accident_severity` that the DfT includes for their own reporting purposes.
 
-Both models use LightGBM as the base classifier. The key difference is how the training data is resampled before fitting.
+Once I dropped it, balanced accuracy fell from 84% to 55%. That was the honest baseline.
 
-### SMOTE+Tomek (Emergency Response Model)
+This is worth flagging because the column is not obviously leaky from its name. If you're working with the DfT STATS19 data, watch out for it.
 
-SMOTE (Synthetic Minority Over-sampling Technique) generates new synthetic samples for the minority class by interpolating between existing minority samples and their nearest neighbors. Tomek links then remove borderline majority-class samples that are nearest neighbors to minority samples, cleaning up the decision boundary.
+I also looked hard at `did_police_officer_attend_scene_of_accident`, since 99% of severe collisions have police attendance. I kept it because police dispatch is based on the initial report (before severity is formally assessed), but it's borderline and worth noting.
 
-The combination is aggressive: it both inflates the minority class and cleans ambiguous regions. This pushes the classifier toward higher sensitivity for the rare class, at the cost of more false positives in the majority class.
+## What actually helps: vehicle features and feature engineering
 
-### ADASYN (Traffic Management Model)
+Since the collision features were weak, I looked at the vehicle table. Each collision involves 1.8 vehicles on average, so I aggregated to the collision level:
 
-ADASYN (Adaptive Synthetic Sampling) also generates synthetic minority samples, but it focuses generation on the minority samples that are hardest to classify — the ones surrounded by majority-class neighbors. This produces a more nuanced boundary that adapts to the local density of each class.
+- **Vehicle type flags**: has_motorcycle, has_hgv, has_bicycle, has_pedestrian
+- **Driver characteristics**: youngest driver age, oldest driver age, percent male drivers
+- **Vehicle characteristics**: max engine capacity, max vehicle age
+- **Crash dynamics**: any_skidding, any_side_impact
 
-The result is a classifier that improves minority-class detection without being as aggressive as SMOTE+Tomek, leading to better balance across all classes.
+I also engineered features from existing columns:
+- Parsed `time` into `hour`, created `is_night` (10pm--6am) and `is_weekend` flags
+- Extracted `month` from `date`
+- Replaced raw lat/lon with a coarser ~11km grid to reduce overfitting
+- Dropped noise columns: `accident_year` (constant 2023), `local_authority_district` (all -1), IDs
 
-### When to Choose Which
+The MI of the vehicle-derived features was comparable to the best collision features. Not transformative, but when every feature is weak, each small contribution matters. The final feature set has 42 features.
 
-The choice between SMOTE+Tomek and ADASYN is not about one being universally better. It depends on what error is more costly:
+## Why two models, not one
 
-- **High recall on rare class needed** (missing the event is catastrophic) → SMOTE+Tomek. Accept more false positives.
-- **Balanced performance needed** (all classes matter roughly equally) → ADASYN. Accept slightly lower recall on the rarest class in exchange for fewer false alarms.
+Different stakeholders need different things:
 
-## Threshold Tuning via Probability Calibration
+**Emergency services** need to pre-position resources for potentially severe crashes. Missing a fatal accident is far worse than dispatching an extra ambulance. The priority is recall on the severe class.
 
-Resampling changes the class distribution that the model sees during training, which distorts the predicted probabilities. A model trained on SMOTE-resampled data will output inflated probabilities for the minority class because the training set made that class appear more common than it actually is.
+**Traffic management** needs a balanced view for long-term resource allocation. Over-predicting severe cases wastes budget. The priority is balanced accuracy across all three classes.
 
-To address this, I used probability calibration (Platt scaling) after training, then swept the decision threshold to find the operating point that best served each model's objective:
+## LightGBM with class weighting
 
-- **Emergency model**: threshold lowered to maximize severe-class recall
-- **Traffic model**: threshold set to maximize macro recall across all three classes
+I initially tried SMOTE, ADASYN, and SMOTE+Tomek resampling with Random Forest and Logistic Regression. After fixing the leakage, these produced mediocre results and were slow (36 model-resampling combinations, 20+ minutes to train).
 
-This is a critical step that is often skipped. Without calibration, the threshold search operates on distorted probabilities and the selected operating point may not transfer well to production data.
+LightGBM with the `class_weight` parameter turned out to be simpler and better. It handles imbalance natively during gradient computation --- no need to synthesize minority samples.
 
-## Results
+- **Severe-optimized model**: `class_weight={1: 50, 2: 3, 3: 1}` — heavy upweighting of the fatal/severe class
+- **Balanced model**: `class_weight='balanced'` — inverse frequency weighting
 
-| Model | Strategy | Severe Recall | Macro Recall |
-|-------|----------|--------------|--------------|
-| Emergency Response | SMOTE+Tomek | **92.4%** | Lower |
-| Traffic Management | ADASYN | Lower | **81%** |
+Both use 500 trees, max depth 8, learning rate 0.03, and 63 leaves. Training takes under a minute.
 
-The emergency response model catches 92.4% of severe accidents — meaning fewer than 8 in 100 life-threatening incidents would be missed. The tradeoff is a higher false-positive rate on slight accidents, which is acceptable when the cost of missing a severe case is an under-resourced emergency response.
+## Threshold optimization
 
-The traffic management model achieves 81% macro recall, distributing its predictive power more evenly. It is better suited for resource allocation decisions where over-reacting to slight accidents and under-reacting to severe ones are both undesirable.
+The default decision threshold (argmax of predicted probabilities) is conservative. For the severe-optimized model, sweeping the probability threshold for class 1 trades accuracy for recall:
 
-## Key Takeaways
+| Threshold | Severe Recall | Macro Recall | Accuracy |
+|-----------|--------------|--------------|----------|
+| 0.01      | 99.7%        | 0.425        | 13%      |
+| 0.03      | 97.4%        | 0.493        | 28%      |
+| 0.05      | 93.4%        | 0.493        | 37.6%    |
+| default   | 34.2%        | 0.527        | 66.8%    |
 
-1. **Frame the problem before choosing the metric.** "Accuracy" is meaningless at 1.4% minority prevalence. Identify who will use the model and what errors cost them.
+This is the most useful output of the project. Instead of a single accuracy number, the model provides a curve that lets the user pick their tradeoff. The Streamlit dashboard exposes this directly.
 
-2. **Resampling is a modeling choice, not a preprocessing step.** SMOTE+Tomek and ADASYN encode different assumptions about which errors are acceptable. Choose based on the use case, not on which produces a higher number on a single metric.
+## How this compares to published work
 
-3. **Calibrate before tuning thresholds.** Resampling distorts predicted probabilities. Threshold sweeps on uncalibrated scores will find suboptimal operating points.
+I looked for peer-reviewed studies on the same DfT STATS19 dataset to see if anyone had done significantly better.
 
-4. **Two models can be better than one.** When stakeholders have genuinely different loss functions, a single model forces a compromise that serves no one well. Building separate models with separate resampling strategies and thresholds gives each stakeholder a tool optimized for their actual decision.
+[Le (2026)](https://doi.org/10.1371/journal.pone.0347873) in PLOS ONE used LightGBM with SMOTE on 503K STATS19 records (2020--2024) for 2-class KSI prediction. At an optimized threshold, KSI recall reached 0.605 with ROC-AUC of 0.664. Our 3-class macro recall of 0.527 is broadly consistent given the harder multiclass setting.
 
-5. **SMOTE+Tomek is a reasonable default.** It improved minority-class recall in both model configurations. If you're unsure which resampling method to start with on an extreme-imbalance problem, it's a solid first choice.
+[Lagias et al. (2022)](https://doi.org/10.1007/978-3-031-08223-8_34) at Springer EANN explicitly framed STATS19 severity prediction as an imbalanced-classification benchmark, noting ~50% missing data and extreme class skew. Their ANN and RL baselines produced modest results.
+
+[Obasi & Benson (2023)](https://doi.org/10.1016/j.heliyon.2023.e18812) in Heliyon report 87% overall accuracy with Random Forest on STATS19 data from 2005--2014. Without per-class recall breakdown, that 87% mostly reflects correctly predicting the ~80% Slight majority.
+
+No published study achieves strong 3-class severity prediction from pre-crash features alone.
+
+## Final results
+
+| Model | Severe Recall | Macro Recall | Accuracy |
+|-------|--------------|--------------|----------|
+| Severe-optimized (LightGBM) | 0.342 | **0.527** | 0.668 |
+| Balanced (LightGBM) | 0.316 | 0.520 | 0.647 |
+| Baseline (always Slight) | 0.000 | 0.333 | 0.761 |
+
+These numbers are honest. They reflect a genuinely hard classification problem where scene-level features have limited predictive power for crash severity. The value is not in the accuracy number but in making the tradeoff explicit and adjustable.
+
+## What I took away from this
+
+First, always look at the feature importance plot before celebrating good metrics. The leakage column was sitting in plain sight.
+
+Second, overall accuracy is worse than useless on imbalanced problems --- it actively misleads. A 76% accurate model that misses every severe crash is harmful if deployed.
+
+Third, when individual features are all weak (MI < 0.02), the approach matters less than the features. SMOTE vs class weighting vs threshold tuning are all rearranging deck chairs if the features don't carry signal. The vehicle table aggregation added more value than any resampling strategy.
+
+Fourth, sometimes the most honest thing a model can do is show you the tradeoff curve and let you pick your operating point. Not every problem has a clean solution.
