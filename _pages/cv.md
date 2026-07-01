@@ -71,7 +71,7 @@ redirect_from:
     <div class="timeline-item__marker"></div>
     <div class="timeline-item__content">
       <span class="timeline-item__date">July 2025</span>
-      <h3 class="timeline-item__title">Applied AI Lab &mdash; Deep Learning for Computer Vision</h3>
+      <h3 class="timeline-item__title">Applied AI Lab: Deep Learning for Computer Vision</h3>
       <p class="timeline-item__org">WorldQuant University (Remote)</p>
       <p class="timeline-item__desc">Six end-to-end projects in image classification, object detection (YOLOv8), GAN-based image generation, and facial recognition. Technologies: PyTorch, OpenCV, HuggingFace, Flask, Streamlit.</p>
     </div>
@@ -136,6 +136,20 @@ redirect_from:
       <span class="skill-tag">Gemini API</span>
       <span class="skill-tag">Ollama</span>
       <span class="skill-tag">LLM Engineering</span>
+    </div>
+  </div>
+  <div class="cv-skill-category">
+    <h4>MLOps &amp; ML Engineering</h4>
+    <div class="skill-tags">
+      <span class="skill-tag">MLflow</span>
+      <span class="skill-tag">DVC</span>
+      <span class="skill-tag">Docker</span>
+      <span class="skill-tag">FastAPI</span>
+      <span class="skill-tag">Evidently</span>
+      <span class="skill-tag">Pandera</span>
+      <span class="skill-tag">GitHub Actions CI</span>
+      <span class="skill-tag">Model Registry</span>
+      <span class="skill-tag">Drift Monitoring</span>
     </div>
   </div>
   <div class="cv-skill-category">

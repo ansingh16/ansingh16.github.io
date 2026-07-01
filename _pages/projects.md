@@ -68,7 +68,7 @@ author_profile: true
       <div class="project-card__category">LLM Tooling</div>
     </div>
     <h3 class="project-card__title">LaTeX for LLM</h3>
-    <p class="project-card__desc">Converts LaTeX documents into a typed graph for targeted LLM context retrieval — graph-based queries cut prompt size by ~54% on average (up to ~80% for focused queries). Features cross-reference resolution, inline math preservation, interactive force-directed graph visualization, and a Claude MCP server.</p>
+    <p class="project-card__desc">Converts LaTeX documents into a typed graph for targeted LLM context retrieval, where graph-based queries cut prompt size by ~54% on average (up to ~80% for focused queries). Features cross-reference resolution, inline math preservation, interactive force-directed graph visualization, and a Claude MCP server.</p>
     <div class="project-card__tags">
       <span class="project-card__tag">Python</span>
       <span class="project-card__tag">MCP</span>
@@ -102,6 +102,24 @@ author_profile: true
 <h2 class="section-heading" style="margin-top: 3rem;"><span class="section-heading__accent">//</span> Machine Learning</h2>
 
 <div class="projects-grid">
+
+  <div class="project-card">
+    <div class="project-card__header">
+      <div class="project-card__icon"><i class="fas fa-bicycle"></i></div>
+      <div class="project-card__category">MLOps</div>
+    </div>
+    <h3 class="project-card__title">Seoul Bike Demand MLOps Pipeline</h3>
+    <p class="project-card__desc">End-to-end, reproducible ML system for hourly bike-demand forecasting, built to run entirely on a laptop. A DVC pipeline chains ingestion, Pandera validation, feature engineering, LightGBM training, and evaluation; MLflow tracks every run and a gated registry only promotes a new champion when holdout RMSE improves. The champion is exported and served through a Dockerized FastAPI app, with Evidently drift monitoring wired to a retrain signal and CI on GitHub Actions. Holdout R&sup2; &asymp; 0.69 on a time-ordered split.</p>
+    <div class="project-card__tags">
+      <span class="project-card__tag">MLflow</span>
+      <span class="project-card__tag">DVC</span>
+      <span class="project-card__tag">Docker</span>
+      <span class="project-card__tag">Evidently</span>
+    </div>
+    <div class="project-card__links">
+      <a href="https://github.com/ansingh16/seoul-bike-mlops" class="project-card__link"><i class="fab fa-github"></i> GitHub</a>
+    </div>
+  </div>
 
   <div class="project-card">
     <div class="project-card__header">

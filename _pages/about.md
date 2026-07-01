@@ -3,7 +3,7 @@ permalink: /
 title: "Ankit Singh"
 layout: home
 author_profile: false
-hero_bio: "Data Scientist with a PhD in Physics. I build ML models, data pipelines, and deployed apps — background in statistical modeling and terabyte-scale scientific computing."
+hero_bio: "Data Scientist with a PhD in Physics. I build ML models, data pipelines, and deployed apps, with a background in statistical modeling and terabyte-scale scientific computing."
 skills_programming:
   - Python
   - SQL
@@ -68,7 +68,7 @@ featured_projects:
     icon: "fas fa-traffic-light"
     github: "https://github.com/ansingh16/RL_signal_control"
   - title: "Mutual Fund Analyzer"
-    description: "Deployed Streamlit app with Morningstar data for portfolio analysis — sectoral distribution, Sharpe ratio, and company exposure."
+    description: "Deployed Streamlit app with Morningstar data for portfolio analysis covering sectoral distribution, Sharpe ratio, and company exposure."
     tags: ["Streamlit", "Altair", "Scikit-learn"]
     icon: "fas fa-coins"
     github: "https://github.com/ansingh16/MF_analysis"
