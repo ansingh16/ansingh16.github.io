@@ -109,7 +109,7 @@ author_profile: true
       <div class="project-card__category">MLOps</div>
     </div>
     <h3 class="project-card__title">Seoul Bike Demand MLOps Pipeline</h3>
-    <p class="project-card__desc">End-to-end, reproducible ML system for hourly bike-demand forecasting, built to run entirely on a laptop. A DVC pipeline chains ingestion, Pandera validation, feature engineering, LightGBM training, and evaluation; MLflow tracks every run and a gated registry only promotes a new champion when holdout RMSE improves. The champion is exported and served through a Dockerized FastAPI app, with Evidently drift monitoring wired to a retrain signal and CI on GitHub Actions. Holdout R&sup2; &asymp; 0.69 on a time-ordered split.</p>
+    <p class="project-card__desc">End-to-end, reproducible ML system for hourly bike-demand forecasting, built to run entirely on a laptop. A DVC pipeline chains ingestion, Pandera validation, feature engineering, LightGBM training, and evaluation; MLflow tracks every run and a gated registry only promotes a new champion when holdout RMSE improves. The champion is exported and served through a Dockerized FastAPI app, with Evidently drift monitoring wired to a retrain signal and CI on GitHub Actions. Holdout R&sup2; &asymp; 0.80 on a time-ordered split.</p>
     <div class="project-card__tags">
       <span class="project-card__tag">MLflow</span>
       <span class="project-card__tag">DVC</span>
