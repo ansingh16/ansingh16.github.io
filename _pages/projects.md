@@ -123,6 +123,24 @@ author_profile: true
 
   <div class="project-card">
     <div class="project-card__header">
+      <div class="project-card__icon"><i class="fas fa-brain"></i></div>
+      <div class="project-card__category">Deep Learning</div>
+    </div>
+    <h3 class="project-card__title">Galaxy Morphology Deep Learning</h3>
+    <p class="project-card__desc">PyTorch image classification of galaxy morphology on Galaxy10 SDSS: 21,785 real SDSS cutouts across 10 heavily imbalanced classes. Benchmarks a from-scratch CNN against ResNet-18 transfer learning, both frozen-feature extraction and full fine-tuning. Class-weighted loss and macro-F1 model selection handle the imbalance honestly; the fine-tuned ResNet-18 reaches &asymp; 0.80 test accuracy and 0.64 macro-F1. MLflow tracks every run and a Dockerized FastAPI service returns per-class predictions, with CI on GitHub Actions.</p>
+    <div class="project-card__tags">
+      <span class="project-card__tag">PyTorch</span>
+      <span class="project-card__tag">CNN</span>
+      <span class="project-card__tag">Transfer Learning</span>
+      <span class="project-card__tag">MLflow</span>
+    </div>
+    <div class="project-card__links">
+      <a href="https://github.com/ansingh16/galaxy_morphology_cnn" class="project-card__link"><i class="fab fa-github"></i> GitHub</a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-card__header">
       <div class="project-card__icon"><i class="fas fa-car-crash"></i></div>
       <div class="project-card__category">Classification</div>
     </div>
