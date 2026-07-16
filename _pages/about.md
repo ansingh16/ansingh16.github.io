@@ -67,7 +67,7 @@ featured_projects:
     description: "PyTorch LSTM forecasting motorway congestion from real Transport for London sensor data, reading a 4-hour window of 15-minute volume and speed readings to predict the next interval. Benchmarked against majority-class and rush-hour baselines on a ~10% minority class: 0.977 recall, 0.765 F1."
     tags: ["PyTorch", "LSTM", "Time Series", "API"]
     icon: "fas fa-traffic-light"
-    github: "https://github.com/ansingh16/RL_signal_control"
+    github: "https://github.com/ansingh16/tfl-congestion-lstm"
   - title: "Mutual Fund Analyzer"
     description: "Deployed Streamlit app with Morningstar data for portfolio analysis covering sectoral distribution, Sharpe ratio, and company exposure."
     tags: ["Streamlit", "Altair", "Scikit-learn"]

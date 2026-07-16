@@ -172,7 +172,7 @@ author_profile: true
       <span class="project-card__tag">TfL API</span>
     </div>
     <div class="project-card__links">
-      <a href="https://github.com/ansingh16/RL_signal_control" class="project-card__link"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://github.com/ansingh16/tfl-congestion-lstm" class="project-card__link"><i class="fab fa-github"></i> GitHub</a>
     </div>
   </div>
 
