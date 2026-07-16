@@ -161,13 +161,14 @@ author_profile: true
   <div class="project-card">
     <div class="project-card__header">
       <div class="project-card__icon"><i class="fas fa-traffic-light"></i></div>
-      <div class="project-card__category">Reinforcement Learning</div>
+      <div class="project-card__category">Deep Learning</div>
     </div>
-    <h3 class="project-card__title">RL Traffic Signal Control</h3>
-    <p class="project-card__desc">Deep RL agent that learns adaptive signal timing policies for a single intersection using real traffic flow data from the Transport for London API, replacing fixed-cycle control with a learned policy trained via PyTorch.</p>
+    <h3 class="project-card__title">M25 Congestion Forecasting with LSTM</h3>
+    <p class="project-card__desc">PyTorch LSTM that forecasts motorway congestion from real Transport for London sensor data. Each checkpoint reports traffic volume and average speed every 15 minutes; the model reads a 4-hour window of history and predicts whether the next interval will be congested (average speed below 30 mph). Congestion is a &asymp; 10% minority class, so the model is benchmarked against majority-class and rush-hour baselines rather than judged on accuracy alone: 0.977 recall and 0.765 F1 on 15,731 held-out windows, with a chronological 70/15/15 split and PR-AUC 0.893 against a no-skill baseline of 0.256.</p>
     <div class="project-card__tags">
-      <span class="project-card__tag">Deep RL</span>
       <span class="project-card__tag">PyTorch</span>
+      <span class="project-card__tag">LSTM</span>
+      <span class="project-card__tag">Time Series</span>
       <span class="project-card__tag">TfL API</span>
     </div>
     <div class="project-card__links">

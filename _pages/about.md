@@ -23,8 +23,9 @@ skills_ml:
   - PyTorch
   - Scikit-learn
   - LightGBM
-  - Deep RL
   - CNNs
+  - LSTMs
+  - Transfer Learning
   - GANs
   - YOLOv8
   - ARIMA
@@ -62,9 +63,9 @@ featured_projects:
     tags: ["RAG", "FAISS", "Streamlit", "NLP"]
     icon: "fas fa-robot"
     github: "https://github.com/ansingh16/UK_visa_RAG"
-  - title: "RL Traffic Signal Control"
-    description: "Deep RL agent trained on real Transport for London API traffic flow data to learn adaptive signal timing policies for a single intersection, replacing fixed-cycle control."
-    tags: ["Deep RL", "PyTorch", "API"]
+  - title: "M25 Congestion Forecasting with LSTM"
+    description: "PyTorch LSTM forecasting motorway congestion from real Transport for London sensor data, reading a 4-hour window of 15-minute volume and speed readings to predict the next interval. Benchmarked against majority-class and rush-hour baselines on a ~10% minority class: 0.977 recall, 0.765 F1."
+    tags: ["PyTorch", "LSTM", "Time Series", "API"]
     icon: "fas fa-traffic-light"
     github: "https://github.com/ansingh16/RL_signal_control"
   - title: "Mutual Fund Analyzer"
@@ -78,6 +79,6 @@ redirect_from:
   - /about.html
 ---
 
-I'm a Research Fellow at the **University of Nottingham** with a PhD in Physics and 10+ years working with terabyte-scale simulation data, statistical modeling, and HPC. Recent projects include a dual-model classifier for 151K UK road accidents, a deep RL agent for traffic signal control, RAG chatbots, and quantitative finance tools.
+I'm a Research Fellow at the **University of Nottingham** with a PhD in Physics and 10+ years working with terabyte-scale simulation data, statistical modeling, and HPC. Recent projects include an end-to-end MLOps pipeline with drift monitoring, deep learning for galaxy morphology, a dual-model classifier for 104K UK road accidents, an LSTM congestion forecaster on TfL sensor data, RAG chatbots, and quantitative finance tools.
 
 I'm an ISO/IEC 42001 certified practitioner (AI Management Systems) and AI+ Foundation certified, with additional applied data science credentials from WorldQuant University. 12 peer-reviewed publications, 100+ citations.

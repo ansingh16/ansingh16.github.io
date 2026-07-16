@@ -113,7 +113,7 @@ redirect_from:
     <div class="skill-tags">
       <span class="skill-tag">LightGBM</span>
       <span class="skill-tag">Random Forests</span>
-      <span class="skill-tag">Deep RL</span>
+      <span class="skill-tag">LSTMs</span>
       <span class="skill-tag">CNNs</span>
       <span class="skill-tag">GANs</span>
       <span class="skill-tag">YOLOv8</span>
