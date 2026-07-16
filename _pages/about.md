@@ -64,7 +64,7 @@ featured_projects:
     icon: "fas fa-robot"
     github: "https://github.com/ansingh16/UK_visa_RAG"
   - title: "M25 Congestion Forecasting with LSTM"
-    description: "PyTorch LSTM forecasting motorway congestion from real Transport for London sensor data, reading a 4-hour window of 15-minute volume and speed readings to predict the next interval. Benchmarked against majority-class and rush-hour baselines on a ~10% minority class: 0.977 recall, 0.765 F1."
+    description: "PyTorch LSTM forecasting motorway congestion from real Transport for London sensor data, reading a 4-hour window of 15-minute volume and speed readings to predict the next interval. Congestion is the minority class, rising from 5.5% of training intervals to 25.6% in the chronologically held-out period. Benchmarked against majority-class, rush-hour and speed-threshold baselines: 0.977 recall, 0.765 F1, PR-AUC 0.893 against a no-skill 0.256."
     tags: ["PyTorch", "LSTM", "Time Series", "API"]
     icon: "fas fa-traffic-light"
     github: "https://github.com/ansingh16/tfl-congestion-lstm"
