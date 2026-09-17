@@ -25,10 +25,10 @@ author:
   name             : "Ankit Singh"
   pronouns         : # example: "she/her"  
   bio              : "Data Scientist & Astrophysicist"
-  location         : "Nottingham, United Kingdom"
-  employer         : "University of Nottingham"
+  location         : "High Wycombe, United Kingdom"
+  employer         : 
   uri              : # URL
-  email            : "ankit.singh@nottingham.ac.uk"
+  email            : "singhank.astro@gmail.com"
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile

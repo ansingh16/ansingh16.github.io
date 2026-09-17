@@ -16,10 +16,10 @@ redirect_from:
   <div class="timeline-item">
     <div class="timeline-item__marker"></div>
     <div class="timeline-item__content">
-      <span class="timeline-item__date">2025 &ndash; Present</span>
+      <span class="timeline-item__date">2025 &ndash; 2026</span>
       <h3 class="timeline-item__title">Research Fellow</h3>
       <p class="timeline-item__org">University of Nottingham, United Kingdom</p>
-      <p class="timeline-item__desc">Galaxy evolution research with Prof. Meghan Gray and Prof. Frazer Pearce using cosmological simulations.</p>
+      <p class="timeline-item__desc">Galaxy evolution research with Prof. Meghan Gray and Prof. Frazer Pearce using cosmological simulations. The collaboration continues beyond the fellowship.</p>
     </div>
   </div>
   <div class="timeline-item">
