@@ -210,7 +210,7 @@ redirect_from:
 
 <h2 class="section-heading"><span class="section-heading__accent">//</span> Achievements</h2>
 
-- 100+ citations across peer-reviewed scientific journals. [Google Scholar](https://scholar.google.com/citations?user=EBP7248AAAAJ&hl=en)
+- 12 peer-reviewed publications (6 as first author), 174 citations, h-index 6. [Google Scholar](https://scholar.google.com/citations?user=EBP7248AAAAJ&hl=en)
 - Awarded Certificate of Merit (Top 1% nationwide) in Indian Science Examination, 2007
 - Received 5 international travel and research grants
 - Reviewer for Astrophysical Journal, 2021-2024

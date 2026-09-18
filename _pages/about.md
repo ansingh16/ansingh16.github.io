@@ -81,4 +81,4 @@ redirect_from:
 
 I'm a data scientist and astrophysicist with a PhD in Physics and 10+ years working with terabyte-scale simulation data, statistical modeling, and HPC. I was a Research Fellow at the **University of Nottingham** until September 2026 and continue to collaborate with the group on galaxy evolution research. Recent projects include an end-to-end MLOps pipeline with drift monitoring, deep learning for galaxy morphology, a dual-model classifier for 104K UK road accidents, an LSTM congestion forecaster on TfL sensor data, RAG chatbots, and quantitative finance tools.
 
-I'm an ISO/IEC 42001 certified practitioner (AI Management Systems) and AI+ Foundation certified, with additional applied data science credentials from WorldQuant University. 12 peer-reviewed publications, 100+ citations.
+I'm an ISO/IEC 42001 certified practitioner (AI Management Systems) and AI+ Foundation certified, with additional applied data science credentials from WorldQuant University. 12 peer-reviewed publications (6 as first author), 174 citations, h-index 6.
