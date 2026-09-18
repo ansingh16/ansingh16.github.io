@@ -26,7 +26,7 @@ The model is deliberately small and boring. It is a LightGBM regressor, 600 tree
 | RMSE | 269.5 |
 | R² | 0.797 |
 
-That R² of 0.797 is not what the repo is for. Everything around the model is: a reproducible DVC pipeline (ingest, validate, featurize, train, evaluate), Pandera schema validation, MLflow tracking on a SQLite backend, a gated registry, a FastAPI service in a multi-stage Docker image, and Evidently drift monitoring. All of it runs locally on a laptop with no cloud dependencies.
+That R² of 0.797 is not what the repo is for. Everything around the model is: a reproducible DVC pipeline (ingest, validate, featurize, train, evaluate), Pandera schema validation, MLflow tracking on a SQLite backend, a gated registry, a FastAPI service in a multi-stage Docker image, and Evidently drift monitoring. All of it runs locally on a laptop with no cloud dependencies. I wrote up the [project as a whole separately](/posts/2026/09/seoul-bike-mlops/), including the error analysis that drove the feature work; this post stays on the promotion gate.
 
 ## The failure the gate prevents
 
